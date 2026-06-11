@@ -1,0 +1,61 @@
+name: enterprise_flutter_template
+description: "Plantilla empresarial Flutter con arquitectura MVVM + Clean Architecture, lista para producción."
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+  flutter: ">=3.22.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Gestión de estado e inyección de dependencias
+  flutter_riverpod: ^2.5.1
+  riverpod_annotation: ^2.3.5
+
+  # Navegación
+  go_router: ^14.2.0
+
+  # Networking
+  dio: ^5.5.0
+
+  # Persistencia
+  shared_preferences: ^2.2.3
+  flutter_secure_storage: ^9.2.2
+
+  # Configuración por ambientes
+  flutter_dotenv: ^5.1.0
+
+  # Utilidades
+  intl: ^0.19.0
+  logger: ^2.3.0
+  equatable: ^2.0.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Linting / calidad
+  flutter_lints: ^4.0.0
+
+  # Testing
+  mocktail: ^1.0.4
+
+  # Code generation (Riverpod)
+  build_runner: ^2.4.11
+  riverpod_generator: ^2.4.0
+  custom_lint: ^0.6.4
+  riverpod_lint: ^2.3.10
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - .env.dev
+    - .env.qa
+    - .env.prod

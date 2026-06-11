@@ -1,0 +1,41 @@
+# Flutter / Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock
+*.g.dart.lock
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Cobertura
+coverage/
+
+# Variables sensibles reales (los .env de ejemplo SÍ se versionan en plantillas).
+# En proyectos reales descomenta lo siguiente y versiona solo .env.example:
+# .env.dev
+# .env.qa
+# .env.prod
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Android
+android/.gradle/
+android/app/debug
+android/app/profile
+android/app/release
+android/key.properties
+**/*.keystore
+**/*.jks
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec

@@ -1,0 +1,22 @@
+{
+  "@@locale": "en",
+  "appTitle": "Enterprise Template",
+  "@appTitle": { "description": "Application title" },
+
+  "loginTitle": "Sign in",
+  "emailLabel": "Email",
+  "passwordLabel": "Password",
+  "loginButton": "Sign in",
+  "emailRequired": "Email is required",
+  "emailInvalid": "Enter a valid email",
+  "passwordRequired": "Password is required",
+  "passwordTooShort": "Password must be at least 6 characters",
+  "loginErrorGeneric": "Unable to sign in. Please try again.",
+
+  "homeTitle": "Home",
+  "welcomeMessage": "Welcome, {name}!",
+  "@welcomeMessage": {
+    "placeholders": { "name": { "type": "String" } }
+  },
+  "logoutButton": "Sign out"
+}

@@ -1,0 +1,53 @@
+# Reglas de análisis estáticas estrictas para el proyecto.
+# Basadas en flutter_lints + reglas adicionales para forzar Clean Code.
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+  errors:
+    # Promover advertencias críticas a errores para frenar el build en CI.
+    invalid_annotation_target: ignore
+    missing_required_param: error
+    missing_return: error
+    todo: ignore
+    deprecated_member_use_from_same_package: warning
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "build/**"
+    - "lib/generated/**"
+
+linter:
+  rules:
+    # Estilo y consistencia
+    always_declare_return_types: true
+    always_use_package_imports: true
+    avoid_dynamic_calls: true
+    avoid_print: true
+    avoid_redundant_argument_values: true
+    avoid_unused_constructor_parameters: true
+    cancel_subscriptions: true
+    close_sinks: true
+    directives_ordering: true
+    prefer_const_constructors: true
+    prefer_const_constructors_in_immutables: true
+    prefer_const_declarations: true
+    prefer_final_locals: true
+    prefer_relative_imports: false
+    prefer_single_quotes: true
+    require_trailing_commas: true
+    sort_child_properties_last: true
+    unawaited_futures: true
+    unnecessary_lambdas: true
+    use_build_context_synchronously: true
+    use_key_in_widget_constructors: true
+    # Documentación
+    public_member_api_docs: false # Activar a true para librerías publicadas.
+
+# Plugin de Riverpod para detectar malos usos de providers.
+custom_lint:
+  rules:
+    - missing_provider_scope
