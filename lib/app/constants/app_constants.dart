@@ -8,6 +8,7 @@ abstract final class AppConstants {
 
   /// Reglas de validación.
   static const int minPasswordLength = 6;
+  static const int minSignUpPasswordLength = 8;
 
   /// Endpoints relativos a la base URL.
   static const String loginEndpoint = '/auth/login';

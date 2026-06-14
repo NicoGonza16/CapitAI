@@ -88,6 +88,23 @@ class FirebaseAuthService implements AuthService {
   }
 
   @override
+  Future<AuthResult> signUpWithEmail({
+    required String name,
+    required String email,
+    required String password,
+  }) async {
+    return _guard(() async {
+      final cred = await _auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      await cred.user!.updateDisplayName(name);
+      await cred.user!.reload();
+      return _result(_auth.currentUser!);
+    });
+  }
+
+  @override
   Future<AuthResult> signInWithGoogle() async {
     return _guard(() async {
       final googleUser = await _googleSignIn.signIn();
@@ -156,6 +173,10 @@ class FirebaseAuthService implements AuthService {
         'wrong-password' ||
         'invalid-credential' =>
           const UnauthorizedException('Correo o contraseña incorrectos'),
+        'email-already-in-use' =>
+          const ValidationException('Ese correo ya está registrado'),
+        'weak-password' =>
+          const ValidationException('La contraseña es demasiado débil'),
         'network-request-failed' =>
           const NetworkException('Sin conexión a internet'),
         _ => UnknownException(message: e.message ?? e.code, cause: e),

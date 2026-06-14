@@ -5,8 +5,10 @@ import 'package:enterprise_flutter_template/core/utilities/validators.dart';
 import 'package:enterprise_flutter_template/core/widgets/gradient_button.dart';
 import 'package:enterprise_flutter_template/features/authentication/presentation/viewmodels/login_state.dart';
 import 'package:enterprise_flutter_template/features/authentication/presentation/viewmodels/login_viewmodel.dart';
+import 'package:enterprise_flutter_template/features/authentication/presentation/widgets/auth_divider.dart';
 import 'package:enterprise_flutter_template/features/authentication/presentation/widgets/auth_text_field.dart';
-import 'package:enterprise_flutter_template/features/authentication/presentation/widgets/social_login_button.dart';
+import 'package:enterprise_flutter_template/features/authentication/presentation/widgets/circle_icon_button.dart';
+import 'package:enterprise_flutter_template/features/authentication/presentation/widgets/social_login_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -79,7 +81,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
                 children: [
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: _CircleIconButton(
+                    child: CircleIconButton(
                       icon: Icons.arrow_back,
                       onPressed: _onBack,
                     ),
@@ -154,62 +156,24 @@ class _LoginViewState extends ConsumerState<LoginView> {
                     onPressed: _submitEmail,
                   ),
                   const SizedBox(height: 20),
-                  _OrDivider(text: l10n.orContinueWith),
+                  AuthDivider(text: l10n.orContinueWith),
                   const SizedBox(height: 20),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: SocialLoginButton(
-                          label: 'Google',
-                          icon: const GoogleLogo(),
-                          isLoading: state.isLoadingMethod(AuthMethod.google),
-                          onPressed: notifier.signInWithGoogle,
-                        ),
-                      ),
-                      const SizedBox(width: 14),
-                      Expanded(
-                        child: SocialLoginButton(
-                          label: 'Apple',
-                          icon: const Icon(Icons.apple, size: 22),
-                          isLoading: state.isLoadingMethod(AuthMethod.apple),
-                          onPressed: notifier.signInWithApple,
-                        ),
-                      ),
-                    ],
+                  SocialLoginRow(
+                    googleLoading: state.isLoadingMethod(AuthMethod.google),
+                    appleLoading: state.isLoadingMethod(AuthMethod.apple),
+                    onGoogle: notifier.signInWithGoogle,
+                    onApple: notifier.signInWithApple,
                   ),
                   const SizedBox(height: 24),
                   _CreateAccountRow(
                     question: l10n.noAccount,
                     action: l10n.createAccount,
-                    onTap: () => context.showSnackBar(l10n.comingSoon),
+                    onTap: () => context.goNamed(RouteNames.register),
                   ),
                 ],
               ),
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-/// Botón circular (flecha de regreso).
-class _CircleIconButton extends StatelessWidget {
-  const _CircleIconButton({required this.icon, required this.onPressed});
-  final IconData icon;
-  final VoidCallback onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: Theme.of(context).colorScheme.surfaceContainerHighest,
-      shape: const CircleBorder(),
-      child: InkWell(
-        customBorder: const CircleBorder(),
-        onTap: onPressed,
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Icon(icon, size: 20),
         ),
       ),
     );
@@ -320,33 +284,6 @@ class _RememberAndForgot extends StatelessWidget {
             child: Text(l10n.forgotPassword, overflow: TextOverflow.ellipsis),
           ),
         ),
-      ],
-    );
-  }
-}
-
-/// Separador "o continúa con".
-class _OrDivider extends StatelessWidget {
-  const _OrDivider({required this.text});
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    final color = context.colors.outlineVariant;
-    return Row(
-      children: [
-        Expanded(child: Divider(color: color)),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: 12,
-              color: context.colors.onSurfaceVariant,
-            ),
-          ),
-        ),
-        Expanded(child: Divider(color: color)),
       ],
     );
   }

@@ -16,6 +16,9 @@ import 'package:go_router/go_router.dart';
 class WelcomeView extends StatelessWidget {
   const WelcomeView({super.key});
 
+  void _goToRegister(BuildContext context) =>
+      context.goNamed(RouteNames.register);
+
   void _goToLogin(BuildContext context) =>
       context.goNamed(RouteNames.login);
 
@@ -65,7 +68,7 @@ class WelcomeView extends StatelessWidget {
                   const SizedBox(height: 32),
                   GradientButton(
                     label: l10n.getStarted,
-                    onPressed: () => _goToLogin(context),
+                    onPressed: () => _goToRegister(context),
                   ),
                   const SizedBox(height: 12),
                   OutlinedButton(

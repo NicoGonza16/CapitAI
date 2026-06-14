@@ -4,6 +4,7 @@ import 'package:enterprise_flutter_template/features/authentication/data/service
 import 'package:enterprise_flutter_template/features/authentication/domain/entities/user.dart';
 import 'package:enterprise_flutter_template/features/authentication/domain/repositories/auth_repository.dart';
 import 'package:enterprise_flutter_template/features/authentication/domain/usecases/login_usecase.dart';
+import 'package:enterprise_flutter_template/features/authentication/domain/usecases/register_usecase.dart';
 import 'package:enterprise_flutter_template/features/authentication/presentation/viewmodels/auth_controller.dart';
 import 'package:enterprise_flutter_template/features/products/data/datasource/product_remote_datasource.dart';
 import 'package:enterprise_flutter_template/features/products/domain/repositories/product_repository.dart';
@@ -20,6 +21,8 @@ class MockTokenStorage extends Mock implements TokenStorage {}
 class MockSecureStorage extends Mock implements SecureStorage {}
 
 class MockLoginUseCase extends Mock implements LoginUseCase {}
+
+class MockRegisterUseCase extends Mock implements RegisterUseCase {}
 
 class MockAuthController extends Mock implements AuthController {}
 

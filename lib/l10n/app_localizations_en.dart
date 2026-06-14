@@ -55,6 +55,59 @@ class AppLocalizationsEn extends AppLocalizations {
   String get comingSoon => 'Coming soon';
 
   @override
+  String get registerTitle => 'Create account';
+
+  @override
+  String get registerSubtitle => 'Join 256,000 smart users';
+
+  @override
+  String stepProgress(int current, int total) {
+    return 'Step $current of $total';
+  }
+
+  @override
+  String get fullNameLabel => 'Full name';
+
+  @override
+  String get fullNameRequired => 'Name is required';
+
+  @override
+  String get passwordHintMin8 => 'At least 8 characters';
+
+  @override
+  String get confirmPasswordLabel => 'Confirm password';
+
+  @override
+  String get confirmPasswordHint => 'Repeat your password';
+
+  @override
+  String get passwordsDoNotMatch => 'Passwords do not match';
+
+  @override
+  String get acceptTermsPrefix => 'I accept the ';
+
+  @override
+  String get termsAndConditions => 'Terms and Conditions';
+
+  @override
+  String get termsConnector => ' and the ';
+
+  @override
+  String get privacyPolicy => 'Privacy Policy';
+
+  @override
+  String get mustAcceptTerms => 'You must accept the terms to continue';
+
+  @override
+  String get orSignUpWith => 'or sign up with';
+
+  @override
+  String get haveAccount => 'Already have an account?';
+
+  @override
+  String get signIn => 'Sign in';
+
+  @override
   String get emailLabel => 'Email';
 
   @override

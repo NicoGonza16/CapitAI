@@ -29,6 +29,13 @@ abstract interface class AuthService {
     required String password,
   });
 
+  /// Crea una cuenta con correo y contraseña y deja la sesión iniciada.
+  Future<AuthResult> signUpWithEmail({
+    required String name,
+    required String email,
+    required String password,
+  });
+
   /// Inicia sesión con Google.
   Future<AuthResult> signInWithGoogle();
 

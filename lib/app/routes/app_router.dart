@@ -2,6 +2,7 @@ import 'package:enterprise_flutter_template/app/routes/route_names.dart';
 import 'package:enterprise_flutter_template/features/authentication/domain/entities/user.dart';
 import 'package:enterprise_flutter_template/features/authentication/presentation/viewmodels/auth_controller.dart';
 import 'package:enterprise_flutter_template/features/authentication/presentation/views/login_view.dart';
+import 'package:enterprise_flutter_template/features/authentication/presentation/views/register_view.dart';
 import 'package:enterprise_flutter_template/features/home/presentation/views/home_view.dart';
 import 'package:enterprise_flutter_template/features/onboarding/presentation/views/welcome_view.dart';
 import 'package:enterprise_flutter_template/features/products/presentation/views/products_view.dart';
@@ -32,7 +33,11 @@ final routerProvider = Provider<GoRouter>((ref) {
   );
 
   // Rutas accesibles sin sesión iniciada.
-  const publicPaths = {RoutePaths.welcome, RoutePaths.login};
+  const publicPaths = {
+    RoutePaths.welcome,
+    RoutePaths.login,
+    RoutePaths.register,
+  };
 
   return GoRouter(
     initialLocation: RoutePaths.welcome,
@@ -58,6 +63,11 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: RoutePaths.login,
         name: RouteNames.login,
         builder: (context, state) => const LoginView(),
+      ),
+      GoRoute(
+        path: RoutePaths.register,
+        name: RouteNames.register,
+        builder: (context, state) => const RegisterView(),
       ),
       GoRoute(
         path: RoutePaths.home,

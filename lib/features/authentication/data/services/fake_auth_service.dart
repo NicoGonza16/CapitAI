@@ -37,6 +37,18 @@ class FakeAuthService implements AuthService {
   }
 
   @override
+  Future<AuthResult> signUpWithEmail({
+    required String name,
+    required String email,
+    required String password,
+  }) async {
+    await Future<void>.delayed(_latency);
+    return _authenticate(
+      User(id: 'fake-${email.hashCode}', name: name, email: email),
+    );
+  }
+
+  @override
   Future<AuthResult> signInWithGoogle() async {
     await Future<void>.delayed(_latency);
     return _authenticate(

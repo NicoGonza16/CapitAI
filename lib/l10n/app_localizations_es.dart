@@ -55,6 +55,59 @@ class AppLocalizationsEs extends AppLocalizations {
   String get comingSoon => 'Próximamente';
 
   @override
+  String get registerTitle => 'Crear cuenta';
+
+  @override
+  String get registerSubtitle => 'Únete a 256,000 usuarios inteligentes';
+
+  @override
+  String stepProgress(int current, int total) {
+    return 'Paso $current de $total';
+  }
+
+  @override
+  String get fullNameLabel => 'Nombre completo';
+
+  @override
+  String get fullNameRequired => 'El nombre es obligatorio';
+
+  @override
+  String get passwordHintMin8 => 'Mínimo 8 caracteres';
+
+  @override
+  String get confirmPasswordLabel => 'Confirmar contraseña';
+
+  @override
+  String get confirmPasswordHint => 'Repite tu contraseña';
+
+  @override
+  String get passwordsDoNotMatch => 'Las contraseñas no coinciden';
+
+  @override
+  String get acceptTermsPrefix => 'Acepto los ';
+
+  @override
+  String get termsAndConditions => 'Términos y Condiciones';
+
+  @override
+  String get termsConnector => ' y la ';
+
+  @override
+  String get privacyPolicy => 'Política de Privacidad';
+
+  @override
+  String get mustAcceptTerms => 'Debes aceptar los términos para continuar';
+
+  @override
+  String get orSignUpWith => 'o regístrate con';
+
+  @override
+  String get haveAccount => '¿Ya tienes cuenta?';
+
+  @override
+  String get signIn => 'Inicia sesión';
+
+  @override
   String get emailLabel => 'Correo electrónico';
 
   @override

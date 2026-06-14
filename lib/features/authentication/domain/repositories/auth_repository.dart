@@ -16,6 +16,13 @@ abstract interface class AuthRepository {
     required String password,
   });
 
+  /// Crea una cuenta con [name], [email] y [password].
+  Future<Result<User>> register({
+    required String name,
+    required String email,
+    required String password,
+  });
+
   /// Inicia sesión con Google.
   Future<Result<User>> loginWithGoogle();
 

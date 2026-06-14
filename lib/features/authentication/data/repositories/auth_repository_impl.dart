@@ -34,6 +34,18 @@ class AuthRepositoryImpl implements AuthRepository {
           ),);
 
   @override
+  Future<Result<User>> register({
+    required String name,
+    required String email,
+    required String password,
+  }) =>
+      _runSignIn(() => _authService.signUpWithEmail(
+            name: name,
+            email: email,
+            password: password,
+          ),);
+
+  @override
   Future<Result<User>> loginWithGoogle() =>
       _runSignIn(_authService.signInWithGoogle);
 
