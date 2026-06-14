@@ -3,6 +3,7 @@ import 'package:enterprise_flutter_template/core/utilities/result.dart';
 import 'package:enterprise_flutter_template/features/authentication/data/models/auth_dtos.dart';
 import 'package:enterprise_flutter_template/features/authentication/data/models/user_dto.dart';
 import 'package:enterprise_flutter_template/features/authentication/data/repositories/auth_repository_impl.dart';
+import 'package:enterprise_flutter_template/features/authentication/domain/entities/user.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -34,7 +35,7 @@ void main() {
       when(() => tokenStorage.saveTokens(
             accessToken: any(named: 'accessToken'),
             refreshToken: any(named: 'refreshToken'),
-          )).thenAnswer((_) async {});
+          ),).thenAnswer((_) async {});
 
       final result = await repository.login(
         email: 'ada@example.com',
@@ -46,7 +47,7 @@ void main() {
       verify(() => tokenStorage.saveTokens(
             accessToken: 'access',
             refreshToken: 'refresh',
-          )).called(1);
+          ),).called(1);
     });
 
     test('propaga el error y NO persiste tokens en fallo', () async {
@@ -59,11 +60,11 @@ void main() {
         password: '123456',
       );
 
-      expect(result, isA<Failure>());
+      expect(result, isA<Failure<User>>());
       verifyNever(() => tokenStorage.saveTokens(
             accessToken: any(named: 'accessToken'),
             refreshToken: any(named: 'refreshToken'),
-          ));
+          ),);
     });
   });
 }

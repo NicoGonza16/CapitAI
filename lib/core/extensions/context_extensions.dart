@@ -1,3 +1,4 @@
+import 'package:enterprise_flutter_template/app/themes/app_semantic_colors.dart';
 import 'package:enterprise_flutter_template/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,10 @@ extension BuildContextX on BuildContext {
 
   /// Acceso a la tipografía.
   TextTheme get textStyles => Theme.of(this).textTheme;
+
+  /// Acceso a los colores semánticos (success, warning, info).
+  AppSemanticColors get semantic =>
+      Theme.of(this).extension<AppSemanticColors>()!;
 
   /// Acceso a las cadenas localizadas.
   AppLocalizations get l10n => AppLocalizations.of(this);

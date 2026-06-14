@@ -3,6 +3,12 @@
   "appTitle": "Enterprise Template",
   "@appTitle": { "description": "Application title" },
 
+  "onboardingTitleLine1": "Your money, powered by",
+  "onboardingTitleHighlight": "artificial intelligence",
+  "onboardingSubtitle": "Track your spending, get smart alerts and improve your financial habits.",
+  "getStarted": "Get started",
+  "alreadyHaveAccount": "I already have an account",
+
   "loginTitle": "Sign in",
   "emailLabel": "Email",
   "passwordLabel": "Password",

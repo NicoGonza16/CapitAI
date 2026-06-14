@@ -4,7 +4,6 @@ import 'package:enterprise_flutter_template/features/authentication/presentation
 import 'package:enterprise_flutter_template/features/authentication/presentation/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 /// Pantalla de inicio de sesión (View del patrón MVVM).
 ///

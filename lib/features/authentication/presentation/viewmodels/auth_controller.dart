@@ -1,4 +1,3 @@
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
 import 'package:enterprise_flutter_template/features/authentication/data/repositories/auth_repository_provider.dart';
 import 'package:enterprise_flutter_template/features/authentication/domain/entities/user.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

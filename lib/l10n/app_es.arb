@@ -1,6 +1,12 @@
 {
   "@@locale": "es",
   "appTitle": "Plantilla Empresarial",
+  "onboardingTitleLine1": "Tu dinero, impulsado por",
+  "onboardingTitleHighlight": "inteligencia artificial",
+  "onboardingSubtitle": "Controla tus gastos, recibe alertas inteligentes y mejora tus hábitos financieros.",
+  "getStarted": "Comenzar",
+  "alreadyHaveAccount": "Ya tengo cuenta",
+
   "loginTitle": "Iniciar sesión",
   "emailLabel": "Correo electrónico",
   "passwordLabel": "Contraseña",

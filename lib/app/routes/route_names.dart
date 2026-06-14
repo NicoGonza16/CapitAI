@@ -3,6 +3,7 @@
 /// Tener las rutas en un único lugar evita strings mágicos dispersos y facilita
 /// el deep linking y los tests de navegación.
 abstract final class RouteNames {
+  static const String welcome = 'welcome';
   static const String login = 'login';
   static const String home = 'home';
   static const String products = 'products';
@@ -10,6 +11,7 @@ abstract final class RouteNames {
 
 /// Paths asociados a cada ruta nombrada.
 abstract final class RoutePaths {
+  static const String welcome = '/welcome';
   static const String login = '/login';
   static const String home = '/';
   static const String products = '/products';

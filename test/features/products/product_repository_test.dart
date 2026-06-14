@@ -19,11 +19,11 @@ void main() {
     when(() => remote.fetchProducts(
           page: any(named: 'page'),
           pageSize: any(named: 'pageSize'),
-        )).thenAnswer(
-      (_) async => Result.success((
-        items: const [ProductDto(id: '1', name: 'Lápiz', price: 9.5)],
+        ),).thenAnswer(
+      (_) async => const Result.success((
+        items: [ProductDto(id: '1', name: 'Lápiz', price: 9.5)],
         hasMore: true,
-      )),
+      ),),
     );
 
     final result = await repository.fetchProducts(page: 1);

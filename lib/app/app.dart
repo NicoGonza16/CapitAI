@@ -3,7 +3,6 @@ import 'package:enterprise_flutter_template/app/themes/app_theme.dart';
 import 'package:enterprise_flutter_template/app/themes/theme_provider.dart';
 import 'package:enterprise_flutter_template/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Widget raíz de la aplicación.

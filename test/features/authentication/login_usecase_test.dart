@@ -27,7 +27,7 @@ void main() {
       verifyNever(() => repository.login(
             email: any(named: 'email'),
             password: any(named: 'password'),
-          ));
+          ),);
     });
 
     test('devuelve ValidationException si la contraseña es muy corta', () async {
@@ -42,7 +42,7 @@ void main() {
       when(() => repository.login(
             email: any(named: 'email'),
             password: any(named: 'password'),
-          )).thenAnswer((_) async => const Result.success(user));
+          ),).thenAnswer((_) async => const Result.success(user));
 
       final result = await useCase(
         email: 'ada@example.com',
@@ -54,7 +54,7 @@ void main() {
       verify(() => repository.login(
             email: 'ada@example.com',
             password: '123456',
-          )).called(1);
+          ),).called(1);
     });
   });
 }

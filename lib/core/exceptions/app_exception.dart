@@ -59,7 +59,7 @@ final class CacheException extends AppException {
 /// Error no contemplado.
 final class UnknownException extends AppException {
   const UnknownException({
-    super.message = 'Ocurrió un error inesperado',
-    super.cause,
-  });
+    String message = 'Ocurrió un error inesperado',
+    Object? cause,
+  }) : super(message, cause: cause);
 }

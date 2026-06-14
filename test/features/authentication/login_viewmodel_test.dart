@@ -31,7 +31,7 @@ void main() {
       when(() => loginUseCase(
             email: any(named: 'email'),
             password: any(named: 'password'),
-          )).thenAnswer((_) async => const Result.success(user));
+          ),).thenAnswer((_) async => const Result.success(user));
 
       await viewModel.login(email: 'ada@example.com', password: '123456');
 
@@ -44,7 +44,7 @@ void main() {
       when(() => loginUseCase(
             email: any(named: 'email'),
             password: any(named: 'password'),
-          )).thenAnswer(
+          ),).thenAnswer(
         (_) async => const Result.failure(UnauthorizedException('Credenciales')),
       );
 

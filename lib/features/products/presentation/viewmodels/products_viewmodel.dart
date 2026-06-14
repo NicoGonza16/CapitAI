@@ -52,7 +52,7 @@ class ProductsViewModel extends AsyncNotifier<List<Product>> {
     state = await AsyncValue.guard(() => _fetchPage(1).then((items) {
           _page = 1;
           return items;
-        }));
+        }),);
   }
 
   /// Pide una página al caso de uso y traduce el [Result] a datos o excepción.

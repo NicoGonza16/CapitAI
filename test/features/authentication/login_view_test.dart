@@ -4,7 +4,6 @@ import 'package:enterprise_flutter_template/features/authentication/presentation
 import 'package:enterprise_flutter_template/features/authentication/presentation/views/login_view.dart';
 import 'package:enterprise_flutter_template/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -62,14 +61,14 @@ void main() {
     verifyNever(() => loginUseCase(
           email: any(named: 'email'),
           password: any(named: 'password'),
-        ));
+        ),);
   });
 
   testWidgets('invoca el caso de uso con credenciales válidas', (tester) async {
     when(() => loginUseCase(
           email: any(named: 'email'),
           password: any(named: 'password'),
-        )).thenAnswer((_) async => const Result.success(user));
+        ),).thenAnswer((_) async => const Result.success(user));
 
     await tester.pumpWidget(buildSubject());
 
