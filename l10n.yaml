@@ -1,5 +1,10 @@
 # Configuración del generador de localizaciones de Flutter.
-arb-dir: lib/l10n
+# arb-dir está separado de output-dir a propósito: el plugin "Flutter Intl"
+# del IDE escribe archivos intl_*.arb en lib/l10n y colisionaría con los
+# nuestros. Mantenemos las fuentes .arb en lib/i18n y generamos la clase en
+# lib/l10n para conservar el import package:.../l10n/app_localizations.dart.
+arb-dir: lib/i18n
+output-dir: lib/l10n
 template-arb-file: app_en.arb
 output-localization-file: app_localizations.dart
 output-class: AppLocalizations
