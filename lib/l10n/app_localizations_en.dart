@@ -31,6 +31,30 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loginTitle => 'Sign in';
 
   @override
+  String get loginWelcomeBack => 'Welcome back';
+
+  @override
+  String get loginSecureConnection => '256-bit SSL secure connection';
+
+  @override
+  String get rememberMe => 'Remember me';
+
+  @override
+  String get forgotPassword => 'Forgot your password?';
+
+  @override
+  String get orContinueWith => 'or continue with';
+
+  @override
+  String get noAccount => 'Don\'t have an account?';
+
+  @override
+  String get createAccount => 'Create account';
+
+  @override
+  String get comingSoon => 'Coming soon';
+
+  @override
   String get emailLabel => 'Email';
 
   @override

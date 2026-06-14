@@ -1,51 +1,50 @@
 import 'package:enterprise_flutter_template/core/exceptions/app_exception.dart';
 import 'package:enterprise_flutter_template/core/storage/token_storage.dart';
 import 'package:enterprise_flutter_template/core/utilities/result.dart';
-import 'package:enterprise_flutter_template/features/authentication/data/datasource/auth_remote_datasource.dart';
-import 'package:enterprise_flutter_template/features/authentication/data/models/auth_dtos.dart';
+import 'package:enterprise_flutter_template/features/authentication/data/services/auth_service.dart';
 import 'package:enterprise_flutter_template/features/authentication/domain/entities/user.dart';
 import 'package:enterprise_flutter_template/features/authentication/domain/repositories/auth_repository.dart';
 
 /// Implementación del [AuthRepository].
 ///
-/// Orquesta la fuente de datos remota y el almacenamiento seguro de tokens, y
-/// traduce los DTOs a entidades de dominio. Es el único lugar donde conviven
-/// datos remotos y locales para esta feature.
+/// Orquesta el [AuthService] (proveedor de identidad) y el almacenamiento
+/// seguro de tokens, y traduce cualquier excepción a la jerarquía [AppException]
+/// envuelta en [Result]. Es el único lugar con `try/catch` de autenticación.
 class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl({
-    required AuthRemoteDataSource remote,
+    required AuthService authService,
     required TokenStorage tokenStorage,
-  })  : _remote = remote,
+  })  : _authService = authService,
         _tokenStorage = tokenStorage;
 
-  final AuthRemoteDataSource _remote;
+  final AuthService _authService;
   final TokenStorage _tokenStorage;
+
+  @override
+  Stream<User?> authStateChanges() => _authService.authStateChanges();
 
   @override
   Future<Result<User>> login({
     required String email,
     required String password,
-  }) async {
-    final result = await _remote.login(
-      LoginRequestDto(email: email, password: password),
-    );
+  }) =>
+      _runSignIn(() => _authService.signInWithEmail(
+            email: email,
+            password: password,
+          ),);
 
-    // Mapear el DTO a entidad y persistir los tokens en caso de éxito.
-    switch (result) {
-      case Success(:final value):
-        await _tokenStorage.saveTokens(
-          accessToken: value.accessToken,
-          refreshToken: value.refreshToken,
-        );
-        return Result.success(value.user.toEntity());
-      case Failure(:final error):
-        return Result.failure(error);
-    }
-  }
+  @override
+  Future<Result<User>> loginWithGoogle() =>
+      _runSignIn(_authService.signInWithGoogle);
+
+  @override
+  Future<Result<User>> loginWithApple() =>
+      _runSignIn(_authService.signInWithApple);
 
   @override
   Future<Result<void>> logout() async {
     try {
+      await _authService.signOut();
       await _tokenStorage.clear();
       return const Result.success(null);
     } catch (e) {
@@ -55,9 +54,28 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<Result<User?>> currentUser() async {
-    final token = await _tokenStorage.accessToken;
-    // En un caso real se decodificaría el JWT o se consultaría /me.
-    if (token == null) return const Result.success(null);
-    return const Result.success(null);
+    try {
+      return Result.success(await _authService.currentUser());
+    } catch (_) {
+      return const Result.success(null);
+    }
+  }
+
+  /// Ejecuta un inicio de sesión, persiste el token y mapea errores a [Result].
+  Future<Result<User>> _runSignIn(
+    Future<AuthResult> Function() action,
+  ) async {
+    try {
+      final result = await action();
+      await _tokenStorage.saveTokens(
+        accessToken: result.token,
+        refreshToken: result.token,
+      );
+      return Result.success(result.user);
+    } on AppException catch (e) {
+      return Result.failure(e);
+    } catch (e) {
+      return Result.failure(UnknownException(message: e.toString(), cause: e));
+    }
   }
 }

@@ -1,3 +1,4 @@
+import 'package:enterprise_flutter_template/app/themes/app_theme.dart';
 import 'package:enterprise_flutter_template/core/utilities/result.dart';
 import 'package:enterprise_flutter_template/features/authentication/domain/entities/user.dart';
 import 'package:enterprise_flutter_template/features/authentication/presentation/viewmodels/login_viewmodel.dart';
@@ -12,6 +13,7 @@ import '../../helpers/mocks.dart';
 
 void main() {
   late MockLoginUseCase loginUseCase;
+  late MockAuthRepository authRepository;
   late MockAuthController authController;
 
   const user = User(id: '1', name: 'Ada', email: 'ada@example.com');
@@ -20,6 +22,7 @@ void main() {
 
   setUp(() {
     loginUseCase = MockLoginUseCase();
+    authRepository = MockAuthRepository();
     authController = MockAuthController();
   });
 
@@ -29,15 +32,17 @@ void main() {
         loginViewModelProvider.overrideWith(
           (ref) => LoginViewModel(
             loginUseCase: loginUseCase,
+            authRepository: authRepository,
             authController: authController,
           ),
         ),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
-        locale: Locale('en'),
-        home: LoginView(),
+        locale: const Locale('en'),
+        theme: AppTheme.light,
+        home: const LoginView(),
       ),
     );
   }

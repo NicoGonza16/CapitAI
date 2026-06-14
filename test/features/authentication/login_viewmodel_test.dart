@@ -10,6 +10,7 @@ import '../../helpers/mocks.dart';
 
 void main() {
   late MockLoginUseCase loginUseCase;
+  late MockAuthRepository authRepository;
   late MockAuthController authController;
   late LoginViewModel viewModel;
 
@@ -19,9 +20,11 @@ void main() {
 
   setUp(() {
     loginUseCase = MockLoginUseCase();
+    authRepository = MockAuthRepository();
     authController = MockAuthController();
     viewModel = LoginViewModel(
       loginUseCase: loginUseCase,
+      authRepository: authRepository,
       authController: authController,
     );
   });
@@ -53,6 +56,19 @@ void main() {
       expect(viewModel.state.status, LoginStatus.error);
       expect(viewModel.state.errorMessage, 'Credenciales');
       verifyNever(() => authController.setAuthenticated(any()));
+    });
+  });
+
+  group('LoginViewModel.signInWithGoogle', () {
+    test('delega en el repositorio y marca el método activo', () async {
+      when(() => authRepository.loginWithGoogle())
+          .thenAnswer((_) async => const Result.success(user));
+
+      await viewModel.signInWithGoogle();
+
+      expect(viewModel.state.status, LoginStatus.success);
+      verify(() => authRepository.loginWithGoogle()).called(1);
+      verify(() => authController.setAuthenticated(user)).called(1);
     });
   });
 }
