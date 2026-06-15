@@ -1,5 +1,5 @@
-import 'package:enterprise_flutter_template/features/authentication/domain/entities/user.dart';
-import 'package:enterprise_flutter_template/features/authentication/presentation/viewmodels/login_state.dart';
+import 'package:capitai/features/authentication/domain/entities/user.dart';
+import 'package:capitai/features/authentication/presentation/viewmodels/login_state.dart';
 import 'package:equatable/equatable.dart';
 
 /// Estado inmutable de la pantalla de registro.

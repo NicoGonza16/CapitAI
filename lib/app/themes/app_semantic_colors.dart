@@ -1,4 +1,4 @@
-import 'package:enterprise_flutter_template/app/themes/app_colors.dart';
+import 'package:capitai/app/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 /// Colores semánticos extra que Material no cubre (success, warning, info).

@@ -1,5 +1,5 @@
-name: enterprise_flutter_template
-description: "Plantilla empresarial Flutter con arquitectura MVVM + Clean Architecture, lista para producción."
+name: capitai
+description: "CapitAI — app financiera Flutter con arquitectura MVVM + Clean Architecture, lista para producción."
 publish_to: "none"
 version: 1.0.0+1
 
@@ -22,6 +22,13 @@ dependencies:
 
   # Networking
   dio: ^5.5.0
+
+  # Autenticación (Firebase)
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.1
+  google_sign_in: ^6.2.1
+  sign_in_with_apple: ^6.1.1
+  crypto: ^3.0.5
 
   # Persistencia
   shared_preferences: ^2.2.3

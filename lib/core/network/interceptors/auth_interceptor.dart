@@ -1,6 +1,6 @@
+import 'package:capitai/app/constants/app_constants.dart';
+import 'package:capitai/core/storage/token_storage.dart';
 import 'package:dio/dio.dart';
-import 'package:enterprise_flutter_template/app/constants/app_constants.dart';
-import 'package:enterprise_flutter_template/core/storage/token_storage.dart';
 
 /// Inyecta el `access token` en cada petición y orquesta el refresh en 401.
 ///

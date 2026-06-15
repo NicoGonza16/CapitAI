@@ -1,5 +1,5 @@
+import 'package:capitai/core/services/logger_service.dart';
 import 'package:dio/dio.dart';
-import 'package:enterprise_flutter_template/core/services/logger_service.dart';
 
 /// Interceptor de logging que delega en [LoggerService].
 ///

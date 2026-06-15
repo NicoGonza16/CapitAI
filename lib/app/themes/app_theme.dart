@@ -1,5 +1,5 @@
-import 'package:enterprise_flutter_template/app/themes/app_colors.dart';
-import 'package:enterprise_flutter_template/app/themes/app_semantic_colors.dart';
+import 'package:capitai/app/themes/app_colors.dart';
+import 'package:capitai/app/themes/app_semantic_colors.dart';
 import 'package:flutter/material.dart';
 
 /// Definición centralizada de los temas claro y oscuro (Material 3).

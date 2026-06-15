@@ -1,8 +1,8 @@
-import 'package:enterprise_flutter_template/core/exceptions/app_exception.dart';
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
-import 'package:enterprise_flutter_template/features/authentication/presentation/viewmodels/auth_action_state.dart';
-import 'package:enterprise_flutter_template/features/authentication/presentation/viewmodels/forgot_password_viewmodel.dart';
-import 'package:enterprise_flutter_template/features/authentication/presentation/viewmodels/reset_password_viewmodel.dart';
+import 'package:capitai/core/exceptions/app_exception.dart';
+import 'package:capitai/core/utilities/result.dart';
+import 'package:capitai/features/authentication/presentation/viewmodels/auth_action_state.dart';
+import 'package:capitai/features/authentication/presentation/viewmodels/forgot_password_viewmodel.dart';
+import 'package:capitai/features/authentication/presentation/viewmodels/reset_password_viewmodel.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

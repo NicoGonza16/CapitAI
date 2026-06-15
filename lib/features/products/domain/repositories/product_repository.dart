@@ -1,6 +1,6 @@
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
-import 'package:enterprise_flutter_template/features/products/domain/entities/product.dart';
-import 'package:enterprise_flutter_template/shared/models/paginated.dart';
+import 'package:capitai/core/utilities/result.dart';
+import 'package:capitai/features/products/domain/entities/product.dart';
+import 'package:capitai/shared/models/paginated.dart';
 
 /// Contrato del repositorio de productos (capa de dominio).
 abstract interface class ProductRepository {

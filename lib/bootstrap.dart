@@ -1,6 +1,6 @@
-import 'package:enterprise_flutter_template/app/app.dart';
-import 'package:enterprise_flutter_template/app/config/environment.dart';
-import 'package:enterprise_flutter_template/core/storage/key_value_storage.dart';
+import 'package:capitai/app/app.dart';
+import 'package:capitai/app/config/environment.dart';
+import 'package:capitai/core/storage/key_value_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';

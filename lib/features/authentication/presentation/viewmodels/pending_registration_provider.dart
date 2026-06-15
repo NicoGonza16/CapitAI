@@ -1,4 +1,4 @@
-import 'package:enterprise_flutter_template/features/authentication/domain/entities/user.dart';
+import 'package:capitai/features/authentication/domain/entities/user.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Usuario recién registrado pendiente de verificar.

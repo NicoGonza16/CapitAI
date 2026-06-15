@@ -1,4 +1,4 @@
-import 'package:enterprise_flutter_template/features/authentication/presentation/widgets/social_login_button.dart';
+import 'package:capitai/features/authentication/presentation/widgets/social_login_button.dart';
 import 'package:flutter/material.dart';
 
 /// Fila con los botones de Google y Apple, usada en login y registro.

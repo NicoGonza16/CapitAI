@@ -1,6 +1,6 @@
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
-import 'package:enterprise_flutter_template/features/authentication/domain/usecases/reset_password_usecase.dart';
-import 'package:enterprise_flutter_template/features/authentication/presentation/viewmodels/auth_action_state.dart';
+import 'package:capitai/core/utilities/result.dart';
+import 'package:capitai/features/authentication/domain/usecases/reset_password_usecase.dart';
+import 'package:capitai/features/authentication/presentation/viewmodels/auth_action_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// ViewModel de "Nueva contraseña" (restablecimiento con el código del enlace).

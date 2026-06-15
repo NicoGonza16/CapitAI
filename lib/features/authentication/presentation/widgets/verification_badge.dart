@@ -1,4 +1,4 @@
-import 'package:enterprise_flutter_template/app/themes/app_colors.dart';
+import 'package:capitai/app/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 /// Escudo con check usado en la pantalla de verificación (paso 2).

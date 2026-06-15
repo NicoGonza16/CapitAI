@@ -20,6 +20,7 @@ analyzer:
     - "build/**"
     - "lib/generated/**"
     - "lib/l10n/app_localizations*.dart"
+    - "lib/firebase_options.dart"
     - "flutter-skills/**"
 
 linter:

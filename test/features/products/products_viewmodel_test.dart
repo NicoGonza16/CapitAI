@@ -1,9 +1,9 @@
-import 'package:enterprise_flutter_template/core/exceptions/app_exception.dart';
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
-import 'package:enterprise_flutter_template/features/products/domain/entities/product.dart';
-import 'package:enterprise_flutter_template/features/products/domain/usecases/get_products_usecase.dart';
-import 'package:enterprise_flutter_template/features/products/presentation/viewmodels/products_viewmodel.dart';
-import 'package:enterprise_flutter_template/shared/models/paginated.dart';
+import 'package:capitai/core/exceptions/app_exception.dart';
+import 'package:capitai/core/utilities/result.dart';
+import 'package:capitai/features/products/domain/entities/product.dart';
+import 'package:capitai/features/products/domain/usecases/get_products_usecase.dart';
+import 'package:capitai/features/products/presentation/viewmodels/products_viewmodel.dart';
+import 'package:capitai/shared/models/paginated.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

@@ -1,8 +1,8 @@
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
-import 'package:enterprise_flutter_template/features/products/data/repositories/product_repository_provider.dart';
-import 'package:enterprise_flutter_template/features/products/domain/entities/product.dart';
-import 'package:enterprise_flutter_template/features/products/domain/repositories/product_repository.dart';
-import 'package:enterprise_flutter_template/shared/models/paginated.dart';
+import 'package:capitai/core/utilities/result.dart';
+import 'package:capitai/features/products/data/repositories/product_repository_provider.dart';
+import 'package:capitai/features/products/domain/entities/product.dart';
+import 'package:capitai/features/products/domain/repositories/product_repository.dart';
+import 'package:capitai/shared/models/paginated.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Caso de uso: obtener una página del catálogo de productos.

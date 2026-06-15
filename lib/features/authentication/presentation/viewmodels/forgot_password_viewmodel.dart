@@ -1,6 +1,6 @@
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
-import 'package:enterprise_flutter_template/features/authentication/domain/usecases/request_password_reset_usecase.dart';
-import 'package:enterprise_flutter_template/features/authentication/presentation/viewmodels/auth_action_state.dart';
+import 'package:capitai/core/utilities/result.dart';
+import 'package:capitai/features/authentication/domain/usecases/request_password_reset_usecase.dart';
+import 'package:capitai/features/authentication/presentation/viewmodels/auth_action_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Provider con el correo al que se envió el enlace (para la pantalla de éxito).

@@ -1,4 +1,4 @@
-import 'package:enterprise_flutter_template/core/utilities/password_strength.dart';
+import 'package:capitai/core/utilities/password_strength.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

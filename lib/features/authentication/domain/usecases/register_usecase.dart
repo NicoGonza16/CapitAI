@@ -1,10 +1,10 @@
-import 'package:enterprise_flutter_template/core/exceptions/app_exception.dart';
-import 'package:enterprise_flutter_template/core/utilities/password_strength.dart';
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
-import 'package:enterprise_flutter_template/core/utilities/validators.dart';
-import 'package:enterprise_flutter_template/features/authentication/data/repositories/auth_repository_provider.dart';
-import 'package:enterprise_flutter_template/features/authentication/domain/entities/user.dart';
-import 'package:enterprise_flutter_template/features/authentication/domain/repositories/auth_repository.dart';
+import 'package:capitai/core/exceptions/app_exception.dart';
+import 'package:capitai/core/utilities/password_strength.dart';
+import 'package:capitai/core/utilities/result.dart';
+import 'package:capitai/core/utilities/validators.dart';
+import 'package:capitai/features/authentication/data/repositories/auth_repository_provider.dart';
+import 'package:capitai/features/authentication/domain/entities/user.dart';
+import 'package:capitai/features/authentication/domain/repositories/auth_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Caso de uso: crear una cuenta.

@@ -1,8 +1,8 @@
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
-import 'package:enterprise_flutter_template/features/products/data/datasource/product_remote_datasource.dart';
-import 'package:enterprise_flutter_template/features/products/domain/entities/product.dart';
-import 'package:enterprise_flutter_template/features/products/domain/repositories/product_repository.dart';
-import 'package:enterprise_flutter_template/shared/models/paginated.dart';
+import 'package:capitai/core/utilities/result.dart';
+import 'package:capitai/features/products/data/datasource/product_remote_datasource.dart';
+import 'package:capitai/features/products/domain/entities/product.dart';
+import 'package:capitai/features/products/domain/repositories/product_repository.dart';
+import 'package:capitai/shared/models/paginated.dart';
 
 /// Implementación del [ProductRepository].
 ///

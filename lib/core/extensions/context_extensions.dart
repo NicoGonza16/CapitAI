@@ -1,5 +1,5 @@
-import 'package:enterprise_flutter_template/app/themes/app_semantic_colors.dart';
-import 'package:enterprise_flutter_template/l10n/app_localizations.dart';
+import 'package:capitai/app/themes/app_semantic_colors.dart';
+import 'package:capitai/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 /// Atajos sobre [BuildContext] para reducir verbosidad en las Views.

@@ -53,9 +53,9 @@ import 'package:firebase_auth/firebase_auth.dart' as fb;
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
-import 'package:enterprise_flutter_template/core/exceptions/app_exception.dart';
-import 'package:enterprise_flutter_template/features/authentication/data/services/auth_service.dart';
-import 'package:enterprise_flutter_template/features/authentication/domain/entities/user.dart';
+import 'package:capitai/core/exceptions/app_exception.dart';
+import 'package:capitai/features/authentication/data/services/auth_service.dart';
+import 'package:capitai/features/authentication/domain/entities/user.dart';
 
 /// Implementación real de [AuthService] con Firebase Authentication.
 class FirebaseAuthService implements AuthService {

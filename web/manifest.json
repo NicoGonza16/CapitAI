@@ -1,6 +1,6 @@
 {
-    "name": "enterprise_flutter_template",
-    "short_name": "enterprise_flutter_template",
+    "name": "CapitAI",
+    "short_name": "CapitAI",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

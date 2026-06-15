@@ -1,5 +1,5 @@
-import 'package:enterprise_flutter_template/core/extensions/context_extensions.dart';
-import 'package:enterprise_flutter_template/core/utilities/password_strength.dart';
+import 'package:capitai/core/extensions/context_extensions.dart';
+import 'package:capitai/core/utilities/password_strength.dart';
 import 'package:flutter/material.dart';
 
 /// Tarjeta con los requisitos de seguridad de la contraseña.

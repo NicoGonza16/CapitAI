@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:enterprise_flutter_template/features/authentication/data/services/verification_service.dart';
+import 'package:capitai/features/authentication/data/services/verification_service.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

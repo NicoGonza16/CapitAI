@@ -1,5 +1,5 @@
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
-import 'package:enterprise_flutter_template/features/authentication/domain/entities/user.dart';
+import 'package:capitai/core/utilities/result.dart';
+import 'package:capitai/features/authentication/domain/entities/user.dart';
 
 /// Contrato del repositorio de autenticación (capa de dominio).
 ///

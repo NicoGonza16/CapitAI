@@ -1,6 +1,6 @@
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
-import 'package:enterprise_flutter_template/features/products/data/models/product_dto.dart';
-import 'package:enterprise_flutter_template/features/products/data/repositories/product_repository_impl.dart';
+import 'package:capitai/core/utilities/result.dart';
+import 'package:capitai/features/products/data/models/product_dto.dart';
+import 'package:capitai/features/products/data/repositories/product_repository_impl.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

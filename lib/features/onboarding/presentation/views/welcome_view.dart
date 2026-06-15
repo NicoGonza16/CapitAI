@@ -1,10 +1,10 @@
-import 'package:enterprise_flutter_template/app/routes/route_names.dart';
-import 'package:enterprise_flutter_template/app/themes/app_colors.dart';
-import 'package:enterprise_flutter_template/core/extensions/context_extensions.dart';
-import 'package:enterprise_flutter_template/core/preview/preview_app.dart';
-import 'package:enterprise_flutter_template/core/widgets/gradient_button.dart';
-import 'package:enterprise_flutter_template/features/onboarding/presentation/widgets/balance_card_preview.dart';
-import 'package:enterprise_flutter_template/features/onboarding/presentation/widgets/page_dots.dart';
+import 'package:capitai/app/routes/route_names.dart';
+import 'package:capitai/app/themes/app_colors.dart';
+import 'package:capitai/core/extensions/context_extensions.dart';
+import 'package:capitai/core/preview/preview_app.dart';
+import 'package:capitai/core/widgets/gradient_button.dart';
+import 'package:capitai/features/onboarding/presentation/widgets/balance_card_preview.dart';
+import 'package:capitai/features/onboarding/presentation/widgets/page_dots.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:go_router/go_router.dart';

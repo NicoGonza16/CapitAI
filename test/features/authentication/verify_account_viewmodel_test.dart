@@ -1,4 +1,4 @@
-import 'package:enterprise_flutter_template/features/authentication/presentation/viewmodels/verify_account_viewmodel.dart';
+import 'package:capitai/features/authentication/presentation/viewmodels/verify_account_viewmodel.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 

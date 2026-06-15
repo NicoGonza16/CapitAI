@@ -1,6 +1,6 @@
-# Enterprise Flutter Template
+# CapitAI
 
-Plantilla empresarial para aplicaciones Flutter, lista para producción. Implementa **MVVM + Clean Architecture** con Riverpod, go_router y Dio, pensada como base escalable, modular, testeable y mantenible para Android e iOS.
+App financiera Flutter, lista para producción. Implementa **MVVM + Clean Architecture** con Riverpod, go_router y Dio, pensada como base escalable, modular, testeable y mantenible para Android e iOS.
 
 ---
 

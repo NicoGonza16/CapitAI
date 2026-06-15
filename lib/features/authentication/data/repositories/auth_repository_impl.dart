@@ -1,9 +1,9 @@
-import 'package:enterprise_flutter_template/core/exceptions/app_exception.dart';
-import 'package:enterprise_flutter_template/core/storage/token_storage.dart';
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
-import 'package:enterprise_flutter_template/features/authentication/data/services/auth_service.dart';
-import 'package:enterprise_flutter_template/features/authentication/domain/entities/user.dart';
-import 'package:enterprise_flutter_template/features/authentication/domain/repositories/auth_repository.dart';
+import 'package:capitai/core/exceptions/app_exception.dart';
+import 'package:capitai/core/storage/token_storage.dart';
+import 'package:capitai/core/utilities/result.dart';
+import 'package:capitai/features/authentication/data/services/auth_service.dart';
+import 'package:capitai/features/authentication/domain/entities/user.dart';
+import 'package:capitai/features/authentication/domain/repositories/auth_repository.dart';
 
 /// Implementación del [AuthRepository].
 ///

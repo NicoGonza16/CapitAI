@@ -1,11 +1,11 @@
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
-import 'package:enterprise_flutter_template/features/authentication/data/repositories/auth_repository_provider.dart';
-import 'package:enterprise_flutter_template/features/authentication/domain/entities/user.dart';
-import 'package:enterprise_flutter_template/features/authentication/domain/repositories/auth_repository.dart';
-import 'package:enterprise_flutter_template/features/authentication/domain/usecases/register_usecase.dart';
-import 'package:enterprise_flutter_template/features/authentication/presentation/viewmodels/auth_controller.dart';
-import 'package:enterprise_flutter_template/features/authentication/presentation/viewmodels/login_state.dart';
-import 'package:enterprise_flutter_template/features/authentication/presentation/viewmodels/register_state.dart';
+import 'package:capitai/core/utilities/result.dart';
+import 'package:capitai/features/authentication/data/repositories/auth_repository_provider.dart';
+import 'package:capitai/features/authentication/domain/entities/user.dart';
+import 'package:capitai/features/authentication/domain/repositories/auth_repository.dart';
+import 'package:capitai/features/authentication/domain/usecases/register_usecase.dart';
+import 'package:capitai/features/authentication/presentation/viewmodels/auth_controller.dart';
+import 'package:capitai/features/authentication/presentation/viewmodels/login_state.dart';
+import 'package:capitai/features/authentication/presentation/viewmodels/register_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// ViewModel de la pantalla de registro (patrón MVVM).

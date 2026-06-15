@@ -1,6 +1,6 @@
 {
   "@@locale": "en",
-  "appTitle": "Enterprise Template",
+  "appTitle": "CapitAI",
   "@appTitle": { "description": "Application title" },
 
   "onboardingTitleLine1": "Your money, powered by",

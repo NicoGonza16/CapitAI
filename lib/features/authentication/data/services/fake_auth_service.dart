@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:enterprise_flutter_template/features/authentication/data/services/auth_service.dart';
-import 'package:enterprise_flutter_template/features/authentication/domain/entities/user.dart';
+import 'package:capitai/features/authentication/data/services/auth_service.dart';
+import 'package:capitai/features/authentication/domain/entities/user.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Implementación simulada de [AuthService] para desarrollo y pruebas de UI.

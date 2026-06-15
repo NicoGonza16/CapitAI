@@ -4,7 +4,7 @@ Contexto para agentes que trabajen en este proyecto. Léelo antes de hacer cambi
 
 ## Qué es
 
-App financiera **CapitAI** (Flutter), construida sobre una plantilla empresarial reutilizable. Nombre del paquete: `enterprise_flutter_template`. Marca: morado `#7C3AED`.
+App financiera **CapitAI** (Flutter), construida sobre una plantilla empresarial reutilizable. Nombre del paquete: `capitai`. Marca: morado `#7C3AED`.
 
 ## Toolchain (importante)
 

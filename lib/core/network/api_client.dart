@@ -1,13 +1,13 @@
+import 'package:capitai/app/config/environment.dart';
+import 'package:capitai/core/exceptions/app_exception.dart';
+import 'package:capitai/core/network/interceptors/auth_interceptor.dart';
+import 'package:capitai/core/network/interceptors/logging_interceptor.dart';
+import 'package:capitai/core/network/interceptors/retry_interceptor.dart';
+import 'package:capitai/core/network/network_response.dart';
+import 'package:capitai/core/services/logger_service.dart';
+import 'package:capitai/core/storage/token_storage.dart';
+import 'package:capitai/core/utilities/result.dart';
 import 'package:dio/dio.dart';
-import 'package:enterprise_flutter_template/app/config/environment.dart';
-import 'package:enterprise_flutter_template/core/exceptions/app_exception.dart';
-import 'package:enterprise_flutter_template/core/network/interceptors/auth_interceptor.dart';
-import 'package:enterprise_flutter_template/core/network/interceptors/logging_interceptor.dart';
-import 'package:enterprise_flutter_template/core/network/interceptors/retry_interceptor.dart';
-import 'package:enterprise_flutter_template/core/network/network_response.dart';
-import 'package:enterprise_flutter_template/core/services/logger_service.dart';
-import 'package:enterprise_flutter_template/core/storage/token_storage.dart';
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Cliente HTTP de alto nivel construido sobre [Dio].

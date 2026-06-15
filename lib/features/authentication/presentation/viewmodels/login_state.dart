@@ -1,4 +1,4 @@
-import 'package:enterprise_flutter_template/features/authentication/domain/entities/user.dart';
+import 'package:capitai/features/authentication/domain/entities/user.dart';
 import 'package:equatable/equatable.dart';
 
 /// Estado del flujo de login.
