@@ -44,4 +44,13 @@ abstract interface class AuthService {
 
   /// Cierra la sesión en el proveedor.
   Future<void> signOut();
+
+  /// Envía un enlace de recuperación de contraseña al [email].
+  Future<void> sendPasswordReset(String email);
+
+  /// Confirma el restablecimiento con el [code] del enlace y la [newPassword].
+  Future<void> confirmPasswordReset({
+    required String code,
+    required String newPassword,
+  });
 }

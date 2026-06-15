@@ -32,6 +32,15 @@ abstract interface class AuthRepository {
   /// Cierra la sesión y limpia los tokens locales.
   Future<Result<void>> logout();
 
+  /// Solicita el envío de un enlace de recuperación al [email].
+  Future<Result<void>> requestPasswordReset(String email);
+
+  /// Restablece la contraseña con el [code] del enlace y la [newPassword].
+  Future<Result<void>> resetPassword({
+    required String code,
+    required String newPassword,
+  });
+
   /// Recupera el usuario actual si existe una sesión válida.
   Future<Result<User?>> currentUser();
 }

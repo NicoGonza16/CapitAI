@@ -147,6 +147,20 @@ class FirebaseAuthService implements AuthService {
     await _auth.signOut();
   }
 
+  @override
+  Future<void> sendPasswordReset(String email) =>
+      _auth.sendPasswordResetEmail(email: email);
+
+  @override
+  Future<void> confirmPasswordReset({
+    required String code,
+    required String newPassword,
+  }) =>
+      _auth.confirmPasswordReset(code: code, newPassword: newPassword);
+  // `code` es el oobCode del enlace del correo (deep link).
+  // Recíbelo con go_router: GoRoute(path: '/reset-password',
+  //   builder: (c, s) => ResetPasswordView(code: s.uri.queryParameters['oobCode']!))
+
   // --- Helpers -------------------------------------------------------------
 
   Future<AuthResult> _result(fb.User user) async {

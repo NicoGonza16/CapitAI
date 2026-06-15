@@ -1,11 +1,17 @@
 import 'package:enterprise_flutter_template/app/routes/route_names.dart';
 import 'package:enterprise_flutter_template/app/themes/app_colors.dart';
 import 'package:enterprise_flutter_template/core/extensions/context_extensions.dart';
+import 'package:enterprise_flutter_template/core/preview/preview_app.dart';
 import 'package:enterprise_flutter_template/core/widgets/gradient_button.dart';
 import 'package:enterprise_flutter_template/features/onboarding/presentation/widgets/balance_card_preview.dart';
 import 'package:enterprise_flutter_template/features/onboarding/presentation/widgets/page_dots.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 import 'package:go_router/go_router.dart';
+
+/// Preview de la pantalla de bienvenida para el Flutter Widget Preview.
+@Preview(name: 'Welcome', size: Size(390, 844))
+Widget welcomeViewPreview() => previewApp(const WelcomeView());
 
 /// Pantalla de bienvenida / onboarding (primer punto del flujo de auth).
 ///

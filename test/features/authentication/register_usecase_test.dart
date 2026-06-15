@@ -23,7 +23,7 @@ void main() {
       final result = await useCase(
         name: '   ',
         email: 'ana@example.com',
-        password: '12345678',
+        password: 'Abcdef1!',
       );
 
       expect((result as Failure).error, isA<ValidationException>());
@@ -54,14 +54,14 @@ void main() {
       final result = await useCase(
         name: 'Ana',
         email: 'ana@example.com',
-        password: '12345678',
+        password: 'Abcdef1!',
       );
 
       expect(result, isA<Success<User>>());
       verify(() => repository.register(
             name: 'Ana',
             email: 'ana@example.com',
-            password: '12345678',
+            password: 'Abcdef1!',
           ),).called(1);
     });
   });

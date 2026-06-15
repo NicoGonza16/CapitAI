@@ -65,6 +65,20 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
+  Future<Result<void>> requestPasswordReset(String email) =>
+      _guardVoid(() => _authService.sendPasswordReset(email));
+
+  @override
+  Future<Result<void>> resetPassword({
+    required String code,
+    required String newPassword,
+  }) =>
+      _guardVoid(() => _authService.confirmPasswordReset(
+            code: code,
+            newPassword: newPassword,
+          ),);
+
+  @override
   Future<Result<User?>> currentUser() async {
     try {
       return Result.success(await _authService.currentUser());
@@ -84,6 +98,18 @@ class AuthRepositoryImpl implements AuthRepository {
         refreshToken: result.token,
       );
       return Result.success(result.user);
+    } on AppException catch (e) {
+      return Result.failure(e);
+    } catch (e) {
+      return Result.failure(UnknownException(message: e.toString(), cause: e));
+    }
+  }
+
+  /// Ejecuta una acción sin valor de retorno mapeando errores a [Result].
+  Future<Result<void>> _guardVoid(Future<void> Function() action) async {
+    try {
+      await action();
+      return const Result.success(null);
     } on AppException catch (e) {
       return Result.failure(e);
     } catch (e) {

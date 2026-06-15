@@ -70,6 +70,17 @@ class FakeAuthService implements AuthService {
     _controller.add(null);
   }
 
+  @override
+  Future<void> sendPasswordReset(String email) async =>
+      Future<void>.delayed(_latency);
+
+  @override
+  Future<void> confirmPasswordReset({
+    required String code,
+    required String newPassword,
+  }) async =>
+      Future<void>.delayed(_latency);
+
   AuthResult _authenticate(User user) {
     _current = user;
     _controller.add(user);

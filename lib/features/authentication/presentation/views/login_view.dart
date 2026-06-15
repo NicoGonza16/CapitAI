@@ -1,6 +1,7 @@
 import 'package:enterprise_flutter_template/app/routes/route_names.dart';
 import 'package:enterprise_flutter_template/app/themes/app_colors.dart';
 import 'package:enterprise_flutter_template/core/extensions/context_extensions.dart';
+import 'package:enterprise_flutter_template/core/preview/preview_app.dart';
 import 'package:enterprise_flutter_template/core/utilities/validators.dart';
 import 'package:enterprise_flutter_template/core/widgets/gradient_button.dart';
 import 'package:enterprise_flutter_template/features/authentication/presentation/viewmodels/login_state.dart';
@@ -10,8 +11,13 @@ import 'package:enterprise_flutter_template/features/authentication/presentation
 import 'package:enterprise_flutter_template/features/authentication/presentation/widgets/circle_icon_button.dart';
 import 'package:enterprise_flutter_template/features/authentication/presentation/widgets/social_login_row.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+
+/// Preview de la pantalla de login para el Flutter Widget Preview.
+@Preview(name: 'Login', size: Size(390, 844))
+Widget loginViewPreview() => previewApp(const LoginView());
 
 /// Pantalla de inicio de sesión (View del patrón MVVM).
 ///
@@ -71,109 +77,115 @@ class _LoginViewState extends ConsumerState<LoginView> {
 
     return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 480),
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(24, 12, 24, 24),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: CircleIconButton(
-                      icon: Icons.arrow_back,
-                      onPressed: _onBack,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  const _WelcomeHeaderCard(),
-                  const SizedBox(height: 28),
-                  Form(
-                    key: _formKey,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        AuthTextField(
-                          key: const Key('login_email_field'),
-                          label: l10n.emailLabel,
-                          hint: 'hola@ejemplo.com',
-                          icon: Icons.mail_outline,
-                          controller: _emailController,
-                          keyboardType: TextInputType.emailAddress,
-                          autofillHints: const [AutofillHints.email],
-                          validator: (value) {
-                            final v = value?.trim() ?? '';
-                            if (v.isEmpty) return l10n.emailRequired;
-                            if (!Validators.isValidEmail(v)) {
-                              return l10n.emailInvalid;
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(height: 18),
-                        AuthTextField(
-                          key: const Key('login_password_field'),
-                          label: l10n.passwordLabel,
-                          hint: '••••••••',
-                          icon: Icons.lock_outline,
-                          controller: _passwordController,
-                          obscureText: _obscure,
-                          autofillHints: const [AutofillHints.password],
-                          suffix: IconButton(
-                            icon: Icon(
-                              _obscure
-                                  ? Icons.visibility_outlined
-                                  : Icons.visibility_off_outlined,
-                              size: 20,
+        child: Stack(
+          children: [
+            Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 480),
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.fromLTRB(24, 64, 24, 24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      const _WelcomeHeaderCard(),
+                      const SizedBox(height: 28),
+                      Form(
+                        key: _formKey,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            AuthTextField(
+                              key: const Key('login_email_field'),
+                              label: l10n.emailLabel,
+                              hint: 'hola@ejemplo.com',
+                              icon: Icons.mail_outline,
+                              controller: _emailController,
+                              keyboardType: TextInputType.emailAddress,
+                              autofillHints: const [AutofillHints.email],
+                              validator: (value) {
+                                final v = value?.trim() ?? '';
+                                if (v.isEmpty) return l10n.emailRequired;
+                                if (!Validators.isValidEmail(v)) {
+                                  return l10n.emailInvalid;
+                                }
+                                return null;
+                              },
                             ),
-                            onPressed: () =>
-                                setState(() => _obscure = !_obscure),
-                          ),
-                          validator: (value) {
-                            final v = value ?? '';
-                            if (v.isEmpty) return l10n.passwordRequired;
-                            if (!Validators.isValidPassword(v)) {
-                              return l10n.passwordTooShort;
-                            }
-                            return null;
-                          },
+                            const SizedBox(height: 18),
+                            AuthTextField(
+                              key: const Key('login_password_field'),
+                              label: l10n.passwordLabel,
+                              hint: '••••••••',
+                              icon: Icons.lock_outline,
+                              controller: _passwordController,
+                              obscureText: _obscure,
+                              autofillHints: const [AutofillHints.password],
+                              suffix: IconButton(
+                                icon: Icon(
+                                  _obscure
+                                      ? Icons.visibility_outlined
+                                      : Icons.visibility_off_outlined,
+                                  size: 20,
+                                ),
+                                onPressed: () =>
+                                    setState(() => _obscure = !_obscure),
+                              ),
+                              validator: (value) {
+                                final v = value ?? '';
+                                if (v.isEmpty) return l10n.passwordRequired;
+                                if (!Validators.isValidPassword(v)) {
+                                  return l10n.passwordTooShort;
+                                }
+                                return null;
+                              },
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                      const SizedBox(height: 8),
+                      _RememberAndForgot(
+                        rememberMe: state.rememberMe,
+                        onRememberChanged: notifier.setRememberMe,
+                        onForgot: () =>
+                            context.goNamed(RouteNames.forgotPassword),
+                      ),
+                      const SizedBox(height: 16),
+                      GradientButton(
+                        key: const Key('login_submit_button'),
+                        label: l10n.loginButton,
+                        isLoading: state.isLoadingMethod(AuthMethod.email),
+                        onPressed: _submitEmail,
+                      ),
+                      const SizedBox(height: 20),
+                      AuthDivider(text: l10n.orContinueWith),
+                      const SizedBox(height: 20),
+                      SocialLoginRow(
+                        googleLoading: state.isLoadingMethod(AuthMethod.google),
+                        appleLoading: state.isLoadingMethod(AuthMethod.apple),
+                        onGoogle: notifier.signInWithGoogle,
+                        onApple: notifier.signInWithApple,
+                      ),
+                      const SizedBox(height: 24),
+                      _CreateAccountRow(
+                        question: l10n.noAccount,
+                        action: l10n.createAccount,
+                        onTap: () => context.goNamed(RouteNames.register),
+                      ),
+                    ],
                   ),
-                  const SizedBox(height: 8),
-                  _RememberAndForgot(
-                    rememberMe: state.rememberMe,
-                    onRememberChanged: notifier.setRememberMe,
-                    onForgot: () => context.showSnackBar(l10n.comingSoon),
-                  ),
-                  const SizedBox(height: 16),
-                  GradientButton(
-                    key: const Key('login_submit_button'),
-                    label: l10n.loginButton,
-                    isLoading: state.isLoadingMethod(AuthMethod.email),
-                    onPressed: _submitEmail,
-                  ),
-                  const SizedBox(height: 20),
-                  AuthDivider(text: l10n.orContinueWith),
-                  const SizedBox(height: 20),
-                  SocialLoginRow(
-                    googleLoading: state.isLoadingMethod(AuthMethod.google),
-                    appleLoading: state.isLoadingMethod(AuthMethod.apple),
-                    onGoogle: notifier.signInWithGoogle,
-                    onApple: notifier.signInWithApple,
-                  ),
-                  const SizedBox(height: 24),
-                  _CreateAccountRow(
-                    question: l10n.noAccount,
-                    action: l10n.createAccount,
-                    onTap: () => context.goNamed(RouteNames.register),
-                  ),
-                ],
+                ),
               ),
             ),
-          ),
+            // Botón de regreso fijo, siempre arriba a la izquierda.
+            Positioned(
+              top: 8,
+              left: 16,
+              child: CircleIconButton(
+                icon: Icons.arrow_back,
+                onPressed: _onBack,
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -227,7 +239,8 @@ class _WelcomeHeaderCard extends StatelessWidget {
               ],
             ),
           ),
-          Icon(Icons.shield_outlined, color: context.semantic.success, size: 20),
+          Icon(Icons.shield_outlined,
+              color: context.semantic.success, size: 20,),
         ],
       ),
     );

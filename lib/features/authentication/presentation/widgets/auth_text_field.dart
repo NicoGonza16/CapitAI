@@ -15,6 +15,7 @@ class AuthTextField extends StatelessWidget {
     this.obscureText = false,
     this.suffix,
     this.autofillHints,
+    this.focusNode,
     super.key,
   });
 
@@ -27,6 +28,7 @@ class AuthTextField extends StatelessWidget {
   final bool obscureText;
   final Widget? suffix;
   final Iterable<String>? autofillHints;
+  final FocusNode? focusNode;
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +48,7 @@ class AuthTextField extends StatelessWidget {
         const SizedBox(height: 8),
         TextFormField(
           controller: controller,
+          focusNode: focusNode,
           keyboardType: keyboardType,
           obscureText: obscureText,
           autofillHints: autofillHints,

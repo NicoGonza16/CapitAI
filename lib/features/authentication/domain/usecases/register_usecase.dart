@@ -1,5 +1,5 @@
-import 'package:enterprise_flutter_template/app/constants/app_constants.dart';
 import 'package:enterprise_flutter_template/core/exceptions/app_exception.dart';
+import 'package:enterprise_flutter_template/core/utilities/password_strength.dart';
 import 'package:enterprise_flutter_template/core/utilities/result.dart';
 import 'package:enterprise_flutter_template/core/utilities/validators.dart';
 import 'package:enterprise_flutter_template/features/authentication/data/repositories/auth_repository_provider.dart';
@@ -27,8 +27,10 @@ class RegisterUseCase {
     if (!Validators.isValidEmail(email)) {
       return const Result.failure(ValidationException('Correo inválido'));
     }
-    if (password.length < AppConstants.minSignUpPasswordLength) {
-      return const Result.failure(ValidationException('Contraseña muy corta'));
+    if (!PasswordStrength.of(password).isValid) {
+      return const Result.failure(
+        ValidationException('La contraseña no cumple los requisitos'),
+      );
     }
     return _repository.register(name: name, email: email, password: password);
   }

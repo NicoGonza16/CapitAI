@@ -34,7 +34,8 @@ void main() {
     expect(viewModel.state.acceptedTerms, isTrue);
   });
 
-  test('register en éxito notifica al AuthController', () async {
+  test('register por email en éxito NO autentica (pasa a verificación)',
+      () async {
     when(() => registerUseCase(
           name: any(named: 'name'),
           email: any(named: 'email'),
@@ -46,6 +47,18 @@ void main() {
       email: 'ana@example.com',
       password: '12345678',
     );
+
+    expect(viewModel.state.status, LoginStatus.success);
+    expect(viewModel.state.user, user);
+    // El email NO autentica todavía: la sesión inicia tras verificar.
+    verifyNever(() => authController.setAuthenticated(any()));
+  });
+
+  test('signInWithGoogle en éxito SÍ autentica', () async {
+    when(() => authRepository.loginWithGoogle())
+        .thenAnswer((_) async => const Result.success(user));
+
+    await viewModel.signInWithGoogle();
 
     expect(viewModel.state.status, LoginStatus.success);
     verify(() => authController.setAuthenticated(user)).called(1);

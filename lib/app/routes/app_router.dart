@@ -1,8 +1,14 @@
 import 'package:enterprise_flutter_template/app/routes/route_names.dart';
 import 'package:enterprise_flutter_template/features/authentication/domain/entities/user.dart';
 import 'package:enterprise_flutter_template/features/authentication/presentation/viewmodels/auth_controller.dart';
+import 'package:enterprise_flutter_template/features/authentication/presentation/views/account_verified_view.dart';
+import 'package:enterprise_flutter_template/features/authentication/presentation/views/email_sent_view.dart';
+import 'package:enterprise_flutter_template/features/authentication/presentation/views/forgot_password_view.dart';
 import 'package:enterprise_flutter_template/features/authentication/presentation/views/login_view.dart';
+import 'package:enterprise_flutter_template/features/authentication/presentation/views/password_updated_view.dart';
 import 'package:enterprise_flutter_template/features/authentication/presentation/views/register_view.dart';
+import 'package:enterprise_flutter_template/features/authentication/presentation/views/reset_password_view.dart';
+import 'package:enterprise_flutter_template/features/authentication/presentation/views/verify_account_view.dart';
 import 'package:enterprise_flutter_template/features/home/presentation/views/home_view.dart';
 import 'package:enterprise_flutter_template/features/onboarding/presentation/views/welcome_view.dart';
 import 'package:enterprise_flutter_template/features/products/presentation/views/products_view.dart';
@@ -37,6 +43,12 @@ final routerProvider = Provider<GoRouter>((ref) {
     RoutePaths.welcome,
     RoutePaths.login,
     RoutePaths.register,
+    RoutePaths.verify,
+    RoutePaths.accountVerified,
+    RoutePaths.forgotPassword,
+    RoutePaths.passwordResetSent,
+    RoutePaths.resetPassword,
+    RoutePaths.passwordUpdated,
   };
 
   return GoRouter(
@@ -68,6 +80,36 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: RoutePaths.register,
         name: RouteNames.register,
         builder: (context, state) => const RegisterView(),
+      ),
+      GoRoute(
+        path: RoutePaths.verify,
+        name: RouteNames.verify,
+        builder: (context, state) => const VerifyAccountView(),
+      ),
+      GoRoute(
+        path: RoutePaths.accountVerified,
+        name: RouteNames.accountVerified,
+        builder: (context, state) => const AccountVerifiedView(),
+      ),
+      GoRoute(
+        path: RoutePaths.forgotPassword,
+        name: RouteNames.forgotPassword,
+        builder: (context, state) => const ForgotPasswordView(),
+      ),
+      GoRoute(
+        path: RoutePaths.passwordResetSent,
+        name: RouteNames.passwordResetSent,
+        builder: (context, state) => const EmailSentView(),
+      ),
+      GoRoute(
+        path: RoutePaths.resetPassword,
+        name: RouteNames.resetPassword,
+        builder: (context, state) => const ResetPasswordView(),
+      ),
+      GoRoute(
+        path: RoutePaths.passwordUpdated,
+        name: RouteNames.passwordUpdated,
+        builder: (context, state) => const PasswordUpdatedView(),
       ),
       GoRoute(
         path: RoutePaths.home,

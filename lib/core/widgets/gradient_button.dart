@@ -12,6 +12,7 @@ class GradientButton extends StatelessWidget {
     required this.onPressed,
     this.gradient = AppColors.brandGradient,
     this.isLoading = false,
+    this.trailingIcon,
     super.key,
   });
 
@@ -19,6 +20,9 @@ class GradientButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final Gradient gradient;
   final bool isLoading;
+
+  /// Icono opcional mostrado a la derecha del texto (p. ej. una flecha).
+  final IconData? trailingIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -55,13 +59,22 @@ class GradientButton extends StatelessWidget {
                               AlwaysStoppedAnimation<Color>(Colors.white),
                         ),
                       )
-                    : Text(
-                        label,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                        ),
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            label,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          if (trailingIcon != null) ...[
+                            const SizedBox(width: 8),
+                            Icon(trailingIcon, color: Colors.white, size: 20),
+                          ],
+                        ],
                       ),
               ),
             ),

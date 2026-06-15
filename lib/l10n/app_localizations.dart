@@ -242,6 +242,12 @@ abstract class AppLocalizations {
   /// **'Passwords do not match'**
   String get passwordsDoNotMatch;
 
+  /// No description provided for @passwordWeak.
+  ///
+  /// In en, this message translates to:
+  /// **'Password doesn\'t meet the requirements'**
+  String get passwordWeak;
+
   /// No description provided for @acceptTermsPrefix.
   ///
   /// In en, this message translates to:
@@ -289,6 +295,228 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sign in'**
   String get signIn;
+
+  /// No description provided for @verifyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify account'**
+  String get verifyTitle;
+
+  /// No description provided for @verifySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We sent a 6-digit code to'**
+  String get verifySubtitle;
+
+  /// No description provided for @verifyButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify account'**
+  String get verifyButton;
+
+  /// No description provided for @resendIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend in'**
+  String get resendIn;
+
+  /// No description provided for @resendCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend code'**
+  String get resendCode;
+
+  /// No description provided for @accountVerifiedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Account verified'**
+  String get accountVerifiedTitle;
+
+  /// No description provided for @accountVerifiedHighlight.
+  ///
+  /// In en, this message translates to:
+  /// **'successfully!'**
+  String get accountVerifiedHighlight;
+
+  /// No description provided for @accountVerifiedSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your account has been verified successfully. You can now start managing your finances with CapitAI.'**
+  String get accountVerifiedSubtitle;
+
+  /// No description provided for @accountVerifiedCardTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Account verified'**
+  String get accountVerifiedCardTitle;
+
+  /// No description provided for @accountVerifiedCardSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your information is safe and protected'**
+  String get accountVerifiedCardSubtitle;
+
+  /// No description provided for @continueButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continueButton;
+
+  /// No description provided for @forgotPasswordTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset password'**
+  String get forgotPasswordTitle;
+
+  /// No description provided for @forgotPasswordSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email and we\'ll send you a secure link to reset your password.'**
+  String get forgotPasswordSubtitle;
+
+  /// No description provided for @secureLinkTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Secure link'**
+  String get secureLinkTitle;
+
+  /// No description provided for @secureLinkSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The link will expire in 24 hours for your security.'**
+  String get secureLinkSubtitle;
+
+  /// No description provided for @sendRecoveryLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Send recovery link'**
+  String get sendRecoveryLink;
+
+  /// No description provided for @emailSentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Email sent!'**
+  String get emailSentTitle;
+
+  /// No description provided for @emailSentSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ve sent a recovery link to your email.'**
+  String get emailSentSubtitle;
+
+  /// No description provided for @emailSentStep1.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your inbox'**
+  String get emailSentStep1;
+
+  /// No description provided for @emailSentStep2.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the email from CapitAI'**
+  String get emailSentStep2;
+
+  /// No description provided for @emailSentStep3.
+  ///
+  /// In en, this message translates to:
+  /// **'Click the recovery link'**
+  String get emailSentStep3;
+
+  /// No description provided for @backToLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to sign in'**
+  String get backToLogin;
+
+  /// No description provided for @newPasswordTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'New password'**
+  String get newPasswordTitle;
+
+  /// No description provided for @newPasswordSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a secure password to protect your account.'**
+  String get newPasswordSubtitle;
+
+  /// No description provided for @newPasswordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'New password'**
+  String get newPasswordLabel;
+
+  /// No description provided for @securityRequirementsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Security requirements'**
+  String get securityRequirementsTitle;
+
+  /// No description provided for @reqMinLength.
+  ///
+  /// In en, this message translates to:
+  /// **'At least 8 characters'**
+  String get reqMinLength;
+
+  /// No description provided for @reqUppercase.
+  ///
+  /// In en, this message translates to:
+  /// **'One uppercase letter (A-Z)'**
+  String get reqUppercase;
+
+  /// No description provided for @reqNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'One number (0-9)'**
+  String get reqNumber;
+
+  /// No description provided for @reqSpecial.
+  ///
+  /// In en, this message translates to:
+  /// **'One special character (!@#\$...)'**
+  String get reqSpecial;
+
+  /// No description provided for @updatePasswordButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Update password'**
+  String get updatePasswordButton;
+
+  /// No description provided for @passwordUpdatedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Password updated'**
+  String get passwordUpdatedTitle;
+
+  /// No description provided for @passwordUpdatedHighlight.
+  ///
+  /// In en, this message translates to:
+  /// **'successfully!'**
+  String get passwordUpdatedHighlight;
+
+  /// No description provided for @passwordUpdatedSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your password has been updated successfully. You can now sign in with your new password.'**
+  String get passwordUpdatedSubtitle;
+
+  /// No description provided for @passwordUpdatedCardTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Secure password'**
+  String get passwordUpdatedCardTitle;
+
+  /// No description provided for @passwordUpdatedCardSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your password was updated successfully and your account is protected.'**
+  String get passwordUpdatedCardSubtitle;
+
+  /// No description provided for @goToLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to sign in'**
+  String get goToLogin;
 
   /// No description provided for @emailLabel.
   ///
