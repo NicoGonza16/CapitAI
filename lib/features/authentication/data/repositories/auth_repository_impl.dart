@@ -65,6 +65,21 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
+  Future<Result<void>> sendEmailVerification() =>
+      _guardVoid(_authService.sendEmailVerification);
+
+  @override
+  Future<Result<bool>> checkEmailVerified() async {
+    try {
+      return Result.success(await _authService.isEmailVerified());
+    } on AppException catch (e) {
+      return Result.failure(e);
+    } catch (e) {
+      return Result.failure(UnknownException(message: e.toString(), cause: e));
+    }
+  }
+
+  @override
   Future<Result<void>> requestPasswordReset(String email) =>
       _guardVoid(() => _authService.sendPasswordReset(email));
 

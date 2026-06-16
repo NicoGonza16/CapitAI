@@ -1,11 +1,12 @@
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:crypto/crypto.dart';
 import 'package:capitai/core/exceptions/app_exception.dart';
 import 'package:capitai/features/authentication/data/services/auth_service.dart';
 import 'package:capitai/features/authentication/domain/entities/user.dart';
+import 'package:crypto/crypto.dart';
 import 'package:firebase_auth/firebase_auth.dart' as fb;
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
@@ -62,6 +63,12 @@ class FirebaseAuthService implements AuthService {
   @override
   Future<AuthResult> signInWithGoogle() {
     return _guard(() async {
+      // En web, el popup de Firebase es el flujo soportado (google_sign_in v6
+      // no soporta `signIn()` imperativo en web).
+      if (kIsWeb) {
+        final cred = await _auth.signInWithPopup(fb.GoogleAuthProvider());
+        return _result(cred.user!);
+      }
       final googleUser = await _googleSignIn.signIn();
       if (googleUser == null) {
         throw const UnauthorizedException('Inicio con Google cancelado');
@@ -79,6 +86,16 @@ class FirebaseAuthService implements AuthService {
   @override
   Future<AuthResult> signInWithApple() {
     return _guard(() async {
+      // En web, `sign_in_with_apple` no funciona sin configuración especial;
+      // se usa el popup de Firebase (requiere el proveedor Apple configurado en
+      // la consola con su Service ID).
+      if (kIsWeb) {
+        final provider = fb.OAuthProvider('apple.com')
+          ..addScope('email')
+          ..addScope('name');
+        final cred = await _auth.signInWithPopup(provider);
+        return _result(cred.user!);
+      }
       final rawNonce = _generateNonce();
       final appleCredential = await SignInWithApple.getAppleIDCredential(
         scopes: [
@@ -100,6 +117,16 @@ class FirebaseAuthService implements AuthService {
   Future<void> signOut() async {
     await _googleSignIn.signOut();
     await _auth.signOut();
+  }
+
+  @override
+  Future<void> sendEmailVerification() async =>
+      _auth.currentUser?.sendEmailVerification();
+
+  @override
+  Future<bool> isEmailVerified() async {
+    await _auth.currentUser?.reload();
+    return _auth.currentUser?.emailVerified ?? false;
   }
 
   @override

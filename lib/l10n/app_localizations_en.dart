@@ -12,6 +12,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appTitle => 'CapitAI';
 
   @override
+  String get splashTagline => 'Finance with artificial intelligence';
+
+  @override
+  String get splashLoading => 'Initializing financial AI...';
+
+  @override
   String get onboardingTitleLine1 => 'Your money, powered by';
 
   @override
@@ -118,6 +124,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get verifyButton => 'Verify account';
+
+  @override
+  String get verifyEmailTitle => 'Verify your email';
+
+  @override
+  String get verifyEmailSubtitle => 'We sent a verification link to';
+
+  @override
+  String get alreadyVerified => 'I already verified my email';
+
+  @override
+  String get resendLink => 'Resend link';
+
+  @override
+  String get verificationLinkSent => 'Verification link sent';
+
+  @override
+  String get emailNotVerifiedYet =>
+      'You haven\'t verified your email yet. Check your inbox.';
 
   @override
   String get resendIn => 'Resend in';

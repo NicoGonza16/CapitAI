@@ -8,8 +8,9 @@ import 'package:capitai/features/authentication/presentation/views/login_view.da
 import 'package:capitai/features/authentication/presentation/views/password_updated_view.dart';
 import 'package:capitai/features/authentication/presentation/views/register_view.dart';
 import 'package:capitai/features/authentication/presentation/views/reset_password_view.dart';
-import 'package:capitai/features/authentication/presentation/views/verify_account_view.dart';
+import 'package:capitai/features/authentication/presentation/views/verify_email_view.dart';
 import 'package:capitai/features/home/presentation/views/home_view.dart';
+import 'package:capitai/features/onboarding/presentation/views/splash_view.dart';
 import 'package:capitai/features/onboarding/presentation/views/welcome_view.dart';
 import 'package:capitai/features/products/presentation/views/products_view.dart';
 import 'package:flutter/foundation.dart';
@@ -52,9 +53,12 @@ final routerProvider = Provider<GoRouter>((ref) {
   };
 
   return GoRouter(
-    initialLocation: RoutePaths.welcome,
+    initialLocation: RoutePaths.splash,
     refreshListenable: refresh,
     redirect: (context, state) {
+      // El splash gestiona su propia navegación tras inicializar servicios.
+      if (state.matchedLocation == RoutePaths.splash) return null;
+
       final isAuthenticated =
           ref.read(authControllerProvider).valueOrNull != null;
       final isPublic = publicPaths.contains(state.matchedLocation);
@@ -66,6 +70,11 @@ final routerProvider = Provider<GoRouter>((ref) {
       return null;
     },
     routes: [
+      GoRoute(
+        path: RoutePaths.splash,
+        name: RouteNames.splash,
+        builder: (context, state) => const SplashView(),
+      ),
       GoRoute(
         path: RoutePaths.welcome,
         name: RouteNames.welcome,
@@ -84,7 +93,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: RoutePaths.verify,
         name: RouteNames.verify,
-        builder: (context, state) => const VerifyAccountView(),
+        builder: (context, state) => const VerifyEmailView(),
       ),
       GoRoute(
         path: RoutePaths.accountVerified,

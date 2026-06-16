@@ -1,7 +1,6 @@
 import 'package:capitai/core/storage/secure_storage.dart';
 import 'package:capitai/core/storage/token_storage.dart';
 import 'package:capitai/features/authentication/data/services/auth_service.dart';
-import 'package:capitai/features/authentication/data/services/verification_service.dart';
 import 'package:capitai/features/authentication/domain/entities/user.dart';
 import 'package:capitai/features/authentication/domain/repositories/auth_repository.dart';
 import 'package:capitai/features/authentication/domain/usecases/login_usecase.dart';
@@ -18,8 +17,6 @@ import 'package:mocktail/mocktail.dart';
 class MockAuthRepository extends Mock implements AuthRepository {}
 
 class MockAuthService extends Mock implements AuthService {}
-
-class MockVerificationService extends Mock implements VerificationService {}
 
 class MockTokenStorage extends Mock implements TokenStorage {}
 

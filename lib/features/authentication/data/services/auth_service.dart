@@ -45,6 +45,12 @@ abstract interface class AuthService {
   /// Cierra la sesión en el proveedor.
   Future<void> signOut();
 
+  /// Envía un enlace de verificación al correo del usuario actual.
+  Future<void> sendEmailVerification();
+
+  /// Recarga al usuario actual y devuelve si su correo ya está verificado.
+  Future<bool> isEmailVerified();
+
   /// Envía un enlace de recuperación de contraseña al [email].
   Future<void> sendPasswordReset(String email);
 

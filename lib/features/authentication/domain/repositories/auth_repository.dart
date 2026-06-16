@@ -32,6 +32,12 @@ abstract interface class AuthRepository {
   /// Cierra la sesión y limpia los tokens locales.
   Future<Result<void>> logout();
 
+  /// Envía el enlace de verificación al correo del usuario actual.
+  Future<Result<void>> sendEmailVerification();
+
+  /// Comprueba si el correo del usuario actual ya fue verificado.
+  Future<Result<bool>> checkEmailVerified();
+
   /// Solicita el envío de un enlace de recuperación al [email].
   Future<Result<void>> requestPasswordReset(String email);
 

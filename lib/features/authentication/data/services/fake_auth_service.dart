@@ -71,6 +71,16 @@ class FakeAuthService implements AuthService {
   }
 
   @override
+  Future<void> sendEmailVerification() async =>
+      Future<void>.delayed(_latency);
+
+  @override
+  Future<bool> isEmailVerified() async {
+    await Future<void>.delayed(_latency);
+    return true; // En desarrollo, el correo se considera verificado.
+  }
+
+  @override
   Future<void> sendPasswordReset(String email) async =>
       Future<void>.delayed(_latency);
 

@@ -104,6 +104,18 @@ abstract class AppLocalizations {
   /// **'CapitAI'**
   String get appTitle;
 
+  /// No description provided for @splashTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Finance with artificial intelligence'**
+  String get splashTagline;
+
+  /// No description provided for @splashLoading.
+  ///
+  /// In en, this message translates to:
+  /// **'Initializing financial AI...'**
+  String get splashLoading;
+
   /// No description provided for @onboardingTitleLine1.
   ///
   /// In en, this message translates to:
@@ -313,6 +325,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Verify account'**
   String get verifyButton;
+
+  /// No description provided for @verifyEmailTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify your email'**
+  String get verifyEmailTitle;
+
+  /// No description provided for @verifyEmailSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We sent a verification link to'**
+  String get verifyEmailSubtitle;
+
+  /// No description provided for @alreadyVerified.
+  ///
+  /// In en, this message translates to:
+  /// **'I already verified my email'**
+  String get alreadyVerified;
+
+  /// No description provided for @resendLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend link'**
+  String get resendLink;
+
+  /// No description provided for @verificationLinkSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification link sent'**
+  String get verificationLinkSent;
+
+  /// No description provided for @emailNotVerifiedYet.
+  ///
+  /// In en, this message translates to:
+  /// **'You haven\'t verified your email yet. Check your inbox.'**
+  String get emailNotVerifiedYet;
 
   /// No description provided for @resendIn.
   ///
