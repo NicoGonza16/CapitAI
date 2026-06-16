@@ -41,7 +41,7 @@ lib/
 ├── l10n/           # AppLocalizations generado
 ├── bootstrap.dart  # arranque compartido (binding, env, Firebase, ProviderScope)
 ├── main.dart + main_dev/qa/prod.dart  # entrypoints por flavor
-└── firebase_options.dart  # PLACEHOLDER hasta `flutterfire configure`
+└── firebase_options.dart  # REAL (proyecto capitai-e7b63); gitignored
 ```
 
 Features actuales: `authentication`, `onboarding`, `home`, `products`.
@@ -56,11 +56,14 @@ Features actuales: `authentication`, `onboarding`, `home`, `products`.
 
 ### Patrones del flujo de autenticación (referencia)
 
-- **`AuthService`** (`features/authentication/data/services/auth_service.dart`) es la ÚNICA costura con el proveedor de identidad. Implementaciones: `FakeAuthService` (dev) y `FirebaseAuthService` (real). Se elige vía `authServiceProvider` (override en `bootstrap`).
+- **`AuthService`** (`features/authentication/data/services/auth_service.dart`) es la ÚNICA costura con el proveedor de identidad. Implementaciones: `FakeAuthService` (dev) y `FirebaseAuthService` (real, **activo**). `bootstrap` hace `Firebase.initializeApp` y override de `authServiceProvider`; cae a `FakeAuthService` si la init falla.
+- **Firebase Auth activado** (proyecto `capitai-e7b63`): email/contraseña, Google y Apple. Login social **adaptativo**: en web usa `signInWithPopup`; en móvil los plugins nativos (`google_sign_in` v6, `sign_in_with_apple`).
 - `AuthController` (`AsyncNotifier<User?>`) mantiene la sesión global; el router lo observa.
-- Flujo de alta: Registro (paso 1, no autentica) → Verificar OTP (paso 2) → Éxito (paso 3, autentica) → Home. El usuario pendiente se pasa con `pendingRegistrationProvider`.
-- Validación de contraseña centralizada en `core/utilities/password_strength.dart` (8+, mayúscula, número, especial); UI compartida en `widgets/password_requirements.dart`.
+- Flujo de alta: Splash → Registro (paso 1, crea cuenta, NO autentica) → **Verificar correo** (paso 2, enlace de Firebase: `sendEmailVerification` + `emailVerified`; NO es OTP, Firebase no da OTP por correo) → Éxito (paso 3, autentica) → Home. El usuario pendiente se pasa con `pendingRegistrationProvider`.
+- Recuperar contraseña: 4 pantallas (solicitar enlace → enviado → nueva contraseña → éxito) vía `sendPasswordReset`/`confirmPasswordReset`.
+- Validación de contraseña centralizada en `core/utilities/password_strength.dart` (8+, mayúscula, número, especial); UI compartida en `widgets/password_requirements.dart` (se despliega al enfocar en el registro).
 - Botón de regreso: SIEMPRE fijo arriba-izquierda con `Stack`+`Positioned` (no dentro del scroll).
+- `app/startup/app_initializer.dart` (`appInitializationProvider`): punto único de init de servicios clave; el `SplashView` lo espera y enruta a Home/Bienvenida.
 
 ## Skills de Flutter (LECTURA OBLIGATORIA)
 

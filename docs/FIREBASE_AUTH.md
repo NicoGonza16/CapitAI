@@ -1,8 +1,25 @@
 # Integración de Firebase Authentication
 
-La app ya tiene toda la lógica de autenticación lista. El único punto de contacto con el proveedor es la interfaz [`AuthService`](../lib/features/authentication/data/services/auth_service.dart). Hoy corre con `FakeAuthService` (simulado). Para usar Firebase real, solo implementa esa interfaz y sobreescribe `authServiceProvider`.
+> **Estado: ACTIVADO** (proyecto `capitai-e7b63`). `bootstrap.dart` hace `Firebase.initializeApp` e inyecta `FirebaseAuthService`; si la init falla, cae a `FakeAuthService` (desarrollo). La fuente de verdad del código es [`firebase_auth_service.dart`](../lib/features/authentication/data/services/firebase_auth_service.dart); el snippet de abajo es la referencia de cómo se construyó.
 
-Soporta: **email/contraseña**, **Google** y **Apple (iOS/macOS)**.
+El único punto de contacto con el proveedor es la interfaz [`AuthService`](../lib/features/authentication/data/services/auth_service.dart). Cambiar de proveedor = implementar esa interfaz y sobreescribir `authServiceProvider`.
+
+Soporta: **email/contraseña**, **Google**, **Apple**, **verificación de correo por enlace** y **reset de contraseña**.
+
+## Detalles clave de implementación
+
+- **Login social adaptativo:** en **web** se usa `FirebaseAuth.signInWithPopup` (Google y Apple); en **móvil**, los plugins nativos (`google_sign_in` v6 con `signIn()`, `sign_in_with_apple`). Motivo: esos plugins no funcionan bien en web.
+- **Verificación de correo (NO OTP):** Firebase no envía códigos de 6 dígitos por correo. Se usa `currentUser.sendEmailVerification()` (enlace) y `currentUser.reload()` + `emailVerified`. Métodos en `AuthService`: `sendEmailVerification()` / `isEmailVerified()`. La pantalla del paso 2 (`verify_email_view.dart`) los consume.
+- **Versiones:** `google_sign_in ^6.2.1` (API `signIn()`); `firebase_core ^3.6`, `firebase_auth ^5.3`.
+
+## Configuración realizada en este proyecto (capitai-e7b63)
+
+- **Identidad nativa:** `applicationId`/`bundleId` = `com.capitai.app`.
+- **Android (Google Sign-In):** requiere la **SHA-1** del keystore en la consola → *Configuración del proyecto → app Android → Agregar huella* → re-descargar `google-services.json` a `android/app/`. Obtén la SHA-1 con `keytool -list -v -keystore "%USERPROFILE%\.android\debug.keystore" -alias androiddebugkey -storepass android`.
+- **iOS:** `GoogleService-Info.plist` en `ios/Runner/`; URL scheme (`REVERSED_CLIENT_ID`) añadido a `ios/Runner/Info.plist`.
+- **Web (Google):** `<meta name="google-signin-client_id" content="...apps.googleusercontent.com">` en `web/index.html`. Además, en **Google Cloud Console → Credenciales → cliente OAuth web**, registrar el **origen JS** `http://localhost:5599` (y el redirect `https://capitai-e7b63.firebaseapp.com/__/auth/handler`). Si falta → `Error 400: origin_mismatch`.
+- **Apple en web:** requiere configurar el proveedor Apple en Firebase (Services ID + cuenta Apple Developer). Sin eso, el popup falla con error controlado.
+- **Consola:** habilitar los proveedores en *Authentication → Sign-in method*; `localhost` debe estar en *Authorized domains*.
 
 ---
 
@@ -145,6 +162,16 @@ class FirebaseAuthService implements AuthService {
   Future<void> signOut() async {
     await _googleSignIn.signOut();
     await _auth.signOut();
+  }
+
+  @override
+  Future<void> sendEmailVerification() async =>
+      _auth.currentUser?.sendEmailVerification();
+
+  @override
+  Future<bool> isEmailVerified() async {
+    await _auth.currentUser?.reload();
+    return _auth.currentUser?.emailVerified ?? false;
   }
 
   @override
