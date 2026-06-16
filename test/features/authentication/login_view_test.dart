@@ -1,10 +1,10 @@
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
-import 'package:enterprise_flutter_template/features/authentication/domain/entities/user.dart';
-import 'package:enterprise_flutter_template/features/authentication/presentation/viewmodels/login_viewmodel.dart';
-import 'package:enterprise_flutter_template/features/authentication/presentation/views/login_view.dart';
-import 'package:enterprise_flutter_template/l10n/app_localizations.dart';
+import 'package:capitai/app/themes/app_theme.dart';
+import 'package:capitai/core/utilities/result.dart';
+import 'package:capitai/features/authentication/domain/entities/user.dart';
+import 'package:capitai/features/authentication/presentation/viewmodels/login_viewmodel.dart';
+import 'package:capitai/features/authentication/presentation/views/login_view.dart';
+import 'package:capitai/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -13,6 +13,7 @@ import '../../helpers/mocks.dart';
 
 void main() {
   late MockLoginUseCase loginUseCase;
+  late MockAuthRepository authRepository;
   late MockAuthController authController;
 
   const user = User(id: '1', name: 'Ada', email: 'ada@example.com');
@@ -21,6 +22,7 @@ void main() {
 
   setUp(() {
     loginUseCase = MockLoginUseCase();
+    authRepository = MockAuthRepository();
     authController = MockAuthController();
   });
 
@@ -30,15 +32,17 @@ void main() {
         loginViewModelProvider.overrideWith(
           (ref) => LoginViewModel(
             loginUseCase: loginUseCase,
+            authRepository: authRepository,
             authController: authController,
           ),
         ),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
-        locale: Locale('en'),
-        home: LoginView(),
+        locale: const Locale('en'),
+        theme: AppTheme.light,
+        home: const LoginView(),
       ),
     );
   }
@@ -62,14 +66,14 @@ void main() {
     verifyNever(() => loginUseCase(
           email: any(named: 'email'),
           password: any(named: 'password'),
-        ));
+        ),);
   });
 
   testWidgets('invoca el caso de uso con credenciales válidas', (tester) async {
     when(() => loginUseCase(
           email: any(named: 'email'),
           password: any(named: 'password'),
-        )).thenAnswer((_) async => const Result.success(user));
+        ),).thenAnswer((_) async => const Result.success(user));
 
     await tester.pumpWidget(buildSubject());
 

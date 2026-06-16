@@ -1,6 +1,6 @@
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
-import 'package:enterprise_flutter_template/features/products/data/models/product_dto.dart';
-import 'package:enterprise_flutter_template/features/products/data/repositories/product_repository_impl.dart';
+import 'package:capitai/core/utilities/result.dart';
+import 'package:capitai/features/products/data/models/product_dto.dart';
+import 'package:capitai/features/products/data/repositories/product_repository_impl.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -19,11 +19,11 @@ void main() {
     when(() => remote.fetchProducts(
           page: any(named: 'page'),
           pageSize: any(named: 'pageSize'),
-        )).thenAnswer(
-      (_) async => Result.success((
-        items: const [ProductDto(id: '1', name: 'Lápiz', price: 9.5)],
+        ),).thenAnswer(
+      (_) async => const Result.success((
+        items: [ProductDto(id: '1', name: 'Lápiz', price: 9.5)],
         hasMore: true,
-      )),
+      ),),
     );
 
     final result = await repository.fetchProducts(page: 1);

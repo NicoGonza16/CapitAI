@@ -1,7 +1,7 @@
-import 'package:enterprise_flutter_template/features/products/domain/entities/product.dart';
-import 'package:enterprise_flutter_template/features/products/presentation/viewmodels/products_viewmodel.dart';
-import 'package:enterprise_flutter_template/features/products/presentation/widgets/product_tile.dart';
-import 'package:enterprise_flutter_template/shared/widgets/error_view.dart';
+import 'package:capitai/features/products/domain/entities/product.dart';
+import 'package:capitai/features/products/presentation/viewmodels/products_viewmodel.dart';
+import 'package:capitai/features/products/presentation/widgets/product_tile.dart';
+import 'package:capitai/shared/widgets/error_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

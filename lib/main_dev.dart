@@ -1,5 +1,5 @@
-import 'package:enterprise_flutter_template/app/config/environment.dart';
-import 'package:enterprise_flutter_template/bootstrap.dart';
+import 'package:capitai/app/config/environment.dart';
+import 'package:capitai/bootstrap.dart';
 
 /// Entrypoint del flavor de desarrollo.
 ///

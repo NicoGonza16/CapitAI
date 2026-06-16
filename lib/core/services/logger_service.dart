@@ -1,4 +1,4 @@
-import 'package:enterprise_flutter_template/app/config/environment.dart';
+import 'package:capitai/app/config/environment.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 

@@ -1,4 +1,4 @@
-import 'package:enterprise_flutter_template/core/exceptions/app_exception.dart';
+import 'package:capitai/core/exceptions/app_exception.dart';
 
 /// Patrón Result (sealed) que modela de forma explícita éxito o fallo.
 ///

@@ -1,7 +1,7 @@
-import 'package:enterprise_flutter_template/app/routes/route_names.dart';
-import 'package:enterprise_flutter_template/app/themes/theme_provider.dart';
-import 'package:enterprise_flutter_template/core/extensions/context_extensions.dart';
-import 'package:enterprise_flutter_template/features/authentication/presentation/viewmodels/auth_controller.dart';
+import 'package:capitai/app/routes/route_names.dart';
+import 'package:capitai/app/themes/theme_provider.dart';
+import 'package:capitai/core/extensions/context_extensions.dart';
+import 'package:capitai/features/authentication/presentation/viewmodels/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';

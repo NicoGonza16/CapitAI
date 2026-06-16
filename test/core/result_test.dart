@@ -1,5 +1,5 @@
-import 'package:enterprise_flutter_template/core/exceptions/app_exception.dart';
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
+import 'package:capitai/core/exceptions/app_exception.dart';
+import 'package:capitai/core/utilities/result.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

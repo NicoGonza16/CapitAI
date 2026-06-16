@@ -1,6 +1,6 @@
-import 'package:enterprise_flutter_template/core/network/api_client.dart';
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
-import 'package:enterprise_flutter_template/features/products/data/models/product_dto.dart';
+import 'package:capitai/core/network/api_client.dart';
+import 'package:capitai/core/utilities/result.dart';
+import 'package:capitai/features/products/data/models/product_dto.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Fuente de datos remota del catálogo de productos.

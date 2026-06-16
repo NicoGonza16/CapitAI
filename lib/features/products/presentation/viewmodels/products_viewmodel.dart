@@ -1,6 +1,6 @@
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
-import 'package:enterprise_flutter_template/features/products/domain/entities/product.dart';
-import 'package:enterprise_flutter_template/features/products/domain/usecases/get_products_usecase.dart';
+import 'package:capitai/core/utilities/result.dart';
+import 'package:capitai/features/products/domain/entities/product.dart';
+import 'package:capitai/features/products/domain/usecases/get_products_usecase.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// ViewModel del catálogo paginado (patrón MVVM).
@@ -52,7 +52,7 @@ class ProductsViewModel extends AsyncNotifier<List<Product>> {
     state = await AsyncValue.guard(() => _fetchPage(1).then((items) {
           _page = 1;
           return items;
-        }));
+        }),);
   }
 
   /// Pide una página al caso de uso y traduce el [Result] a datos o excepción.

@@ -1,5 +1,5 @@
-import 'package:enterprise_flutter_template/app/constants/app_constants.dart';
-import 'package:enterprise_flutter_template/core/storage/key_value_storage.dart';
+import 'package:capitai/app/constants/app_constants.dart';
+import 'package:capitai/core/storage/key_value_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

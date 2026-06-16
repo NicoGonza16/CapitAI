@@ -1,4 +1,4 @@
-import 'package:enterprise_flutter_template/app/constants/app_constants.dart';
+import 'package:capitai/app/constants/app_constants.dart';
 
 /// Validadores puros y reutilizables para formularios.
 ///

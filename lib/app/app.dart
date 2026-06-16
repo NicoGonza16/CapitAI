@@ -1,9 +1,8 @@
-import 'package:enterprise_flutter_template/app/routes/app_router.dart';
-import 'package:enterprise_flutter_template/app/themes/app_theme.dart';
-import 'package:enterprise_flutter_template/app/themes/theme_provider.dart';
-import 'package:enterprise_flutter_template/l10n/app_localizations.dart';
+import 'package:capitai/app/routes/app_router.dart';
+import 'package:capitai/app/themes/app_theme.dart';
+import 'package:capitai/app/themes/theme_provider.dart';
+import 'package:capitai/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Widget raíz de la aplicación.
@@ -19,7 +18,7 @@ class App extends ConsumerWidget {
     final themeMode = ref.watch(themeModeProvider);
 
     return MaterialApp.router(
-      title: 'Enterprise Template',
+      title: 'CapitAI',
       debugShowCheckedModeBanner: false,
       routerConfig: router,
       theme: AppTheme.light,

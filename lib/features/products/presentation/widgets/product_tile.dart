@@ -1,4 +1,4 @@
-import 'package:enterprise_flutter_template/features/products/domain/entities/product.dart';
+import 'package:capitai/features/products/domain/entities/product.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

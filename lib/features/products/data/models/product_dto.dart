@@ -1,4 +1,4 @@
-import 'package:enterprise_flutter_template/features/products/domain/entities/product.dart';
+import 'package:capitai/features/products/domain/entities/product.dart';
 
 /// DTO del producto tal como lo devuelve la API.
 class ProductDto {

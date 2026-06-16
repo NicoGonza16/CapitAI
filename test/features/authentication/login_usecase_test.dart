@@ -1,7 +1,7 @@
-import 'package:enterprise_flutter_template/core/exceptions/app_exception.dart';
-import 'package:enterprise_flutter_template/core/utilities/result.dart';
-import 'package:enterprise_flutter_template/features/authentication/domain/entities/user.dart';
-import 'package:enterprise_flutter_template/features/authentication/domain/usecases/login_usecase.dart';
+import 'package:capitai/core/exceptions/app_exception.dart';
+import 'package:capitai/core/utilities/result.dart';
+import 'package:capitai/features/authentication/domain/entities/user.dart';
+import 'package:capitai/features/authentication/domain/usecases/login_usecase.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -27,7 +27,7 @@ void main() {
       verifyNever(() => repository.login(
             email: any(named: 'email'),
             password: any(named: 'password'),
-          ));
+          ),);
     });
 
     test('devuelve ValidationException si la contraseña es muy corta', () async {
@@ -42,7 +42,7 @@ void main() {
       when(() => repository.login(
             email: any(named: 'email'),
             password: any(named: 'password'),
-          )).thenAnswer((_) async => const Result.success(user));
+          ),).thenAnswer((_) async => const Result.success(user));
 
       final result = await useCase(
         email: 'ada@example.com',
@@ -54,7 +54,7 @@ void main() {
       verify(() => repository.login(
             email: 'ada@example.com',
             password: '123456',
-          )).called(1);
+          ),).called(1);
     });
   });
 }

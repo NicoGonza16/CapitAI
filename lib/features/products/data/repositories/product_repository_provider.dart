@@ -1,6 +1,6 @@
-import 'package:enterprise_flutter_template/features/products/data/datasource/product_remote_datasource.dart';
-import 'package:enterprise_flutter_template/features/products/data/repositories/product_repository_impl.dart';
-import 'package:enterprise_flutter_template/features/products/domain/repositories/product_repository.dart';
+import 'package:capitai/features/products/data/datasource/product_remote_datasource.dart';
+import 'package:capitai/features/products/data/repositories/product_repository_impl.dart';
+import 'package:capitai/features/products/domain/repositories/product_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Provider que expone la implementación de [ProductRepository].

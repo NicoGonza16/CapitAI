@@ -1,5 +1,5 @@
-import 'package:enterprise_flutter_template/app/constants/app_constants.dart';
-import 'package:enterprise_flutter_template/core/storage/secure_storage.dart';
+import 'package:capitai/app/constants/app_constants.dart';
+import 'package:capitai/core/storage/secure_storage.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Gestión segura de tokens de sesión (access + refresh).
